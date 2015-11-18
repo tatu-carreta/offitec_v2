@@ -1,0 +1,82 @@
+
+h1, h2, h3 {font-weight: 300 !important}
+
+
+
+/* SLIDE */
+.slide {background: #878979; height: 340px; margin-bottom: 2em}
+
+.presentacion {text-align: center; color: #70162F; font-size: 1.250em; line-height: 1.5em; width: 60%; margin: 0 auto 2em}
+
+/* Estilos Fichas de Productos*/
+
+.bandaProd {background: #878979; padding: 0.5em 1em; color: #fff; }
+.bandaProd.ofertas {background: #70162F}
+.bandaProd.nuevos {background: #FF7503}
+.bandaProd span {margin-right: 1em; font-size: 0.938em; text-transform: uppercase; margin-top: 0.6em;}
+.lazy {margin: 0}
+
+/* Estilos de Bootstrap modificados */
+.navbar {margin:0;}
+.navbar-toggle {margin-top: 1.560em}
+.navbar-brand {padding: 0.125em 0; margin-top: 1em;}
+.dropdown-menu {background: #878979}
+
+.open {background: #878979}
+
+.thumbnail {padding: 0; border: 1px solid #ccc; border-radius: 0;}
+
+.modal-header, .modal-footer {border: 0}
+
+/* SERVICIOS */
+.redesHome{width: 26px; height: 51px;   position: relative; top: 270px;}
+.redesHome a{background-image: url(../images/sprites-redes.png); width: 24px; height: 24px; display: inline-block;}
+.redes{  width: 51px; position: relative; z-index: 99; top: 70px; right: 105px;}
+.redes a{background-image: url(../images/sprites-redes.png); width: 24px; height: 24px; display: inline-block;}
+.facebook{background-position: 0 -24px; }
+.google{background-position: 48px -24px;}
+.facebook:hover{background-position: 0 0px; }
+.google:hover{background-position: 48px 0px;}
+.col-md-6{margin-bottom: 40px;}
+.info{background-color: #F4F4EF; width: 49.8%;text-align: center; padding-top: 5px; border-bottom: 5px solid #fff; display: inline-block; }
+.info p{font-size: 16px;}
+
+.col-izqservicios {margin-bottom:3%;}
+.col-izqservicios p{margin-top:-6px;}
+
+.ajustaImg {width: 100%; height: auto;}
+
+
+
+/* CLIENTES */
+.clientesImg{width:80%; margin-bottom: 25%;}
+.info-margen{margin-top: 140px;}
+.fila-clientes{margin-top: 4% !important;}
+.lista-clientes{font-size: 1.2em}
+
+/* -- M E D I A  Q U E R Y -- */
+@media screen and (max-width: 1000px) {
+	#menuPrincipal a {padding: 0 1.250em !important }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+	.divMenu {float: left; width: 100%}
+	#menuPrincipal {height: auto !important;} 
+	#menuPrincipal a {height: 40px; line-height: 40px; font-size: 1.250em;}
+	.navbar-collapse {border: 0 !important;}
+}
+
+
+@media screen and (max-width: 744px) {
+
+	.info{width: 100%}
+}
+
+@media screen and (max-width: 495px) {
+	.col-izqservicios{width: 100%;}
+	.col-xs-6{width:100% !important;}
+
+}
