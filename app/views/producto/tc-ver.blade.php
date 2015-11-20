@@ -23,11 +23,11 @@
         <div class="divAlerta ok alert-success">{{ Session::get('mensaje') }}<i onclick="" class="cerrarDivAlerta fa fa-times fa-lg"></i></div>
     @endif
     <div class="container">
-        <h2><span class=""><a class="volveraSeccion" href="{{URL::to('/'.$item -> seccionItem() -> menuSeccion() -> url)}}">{{ $item -> seccionItem() -> menuSeccion() -> nombre }}</a></span></h2>
+        <h2><span class=""><a class="volveraSeccion" href="{{URL::to('/'.$item -> seccionItem() -> menuSeccion()->lang() -> url)}}">{{ $item -> seccionItem() -> menuSeccion()->lang() -> nombre }}</a></span></h2>
        
         @if(Auth::check())
             @if(Auth::user()->can("editar_item"))
-            <a href="{{URL::to('admin/producto/editar/'.$item->producto()->id)}}" data='{{$item -> seccionItem() -> id}}' style="display:none">Editar<i class="fa fa-pencil fa-lg"></i></a>
+            <a href="{{URL::to($prefijo.'/admin/producto/editar/'.$item->producto()->id)}}" data='{{$item -> seccionItem() -> id}}' style="display:none">Editar<i class="fa fa-pencil fa-lg"></i></a>
             @endif
         @endif
         
@@ -39,12 +39,12 @@
                         @if(count($item->imagenes_producto()) > 0)
                             @foreach($item->imagenes_producto() as $img)
                             <li>
-                                <img src="{{ URL::to($img->carpeta.$img->nombre) }}" alt="{{$item->titulo}}">
+                                <img src="{{ URL::to($img->carpeta.$img->nombre) }}" alt="{{$item->lang()->titulo}}">
                                 <p>{{$img->epigrafe}}</p>
                             </li>
                             @endforeach
                         @else
-                            <li><img src="{{ URL::to('images/sinImg.gif') }}" alt="{{$item->titulo}}"></li>
+                            <li><img src="{{ URL::to('images/sinImg.gif') }}" alt="{{$item->lang()->titulo}}"></li>
                         @endif
                     </ul>
                 </div>
@@ -67,7 +67,7 @@
                 @if($item->producto()->cuerpo != "")
                 <div class="editor">
                     <h4>Detalles técnicos</h4>
-                    {{ $item->producto()->cuerpo }}
+                    {{ $item->producto()->lang()->cuerpo }}
                 </div>
                 @endif
                 @if(count($item->producto()->marcas_secundarias()) > 0)

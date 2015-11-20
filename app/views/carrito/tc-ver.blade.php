@@ -5,15 +5,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 marginBottom2">
-                    <h2 class="pull-left">Presupuesto</h2>
+                    <h2 class="pull-left">{{ Lang::get('html.presupuesto') }}</h2>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                <p class="infoCarrito marginBottom2"><i class="fa fa-shopping-cart"></i><strong>CONSULTE PRESUPUESTO:</strong> 1) seleccione hasta 6 productos del catálogo e indique cantidad  2) complete sus datos, detalle su consulta si es necesario y presione enviar 3) Le entregaremos el presupuesto detallado por email.</p>
+                <p class="infoCarrito marginBottom2"><i class="fa fa-shopping-cart"></i>{{ Lang::get('html.carrito.texto_carrito') }}</p>
                     <div class="col-tabla">
-                        <h3>Productos seleccionados</h3>
+                        <h3>{{ Lang::get('html.carrito.productos_seleccionados') }}</h3>
                         <table class="table">
                             <tbody>
                                 @if(Cart::count()>0)
@@ -27,46 +27,46 @@
                                     @endforeach
                                 @else
                                 <tr>
-                                    <td>No hay productos seleccionados.</td>
+                                    <td>{{ Lang::get('html.carrito.no_productos') }}</td>
                                 </tr>
                                 @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="col-carrito">
-                        <h3>Complete sus datos</h3>
+                        <h3>{{ Lang::get('html.carrito.complete_datos') }}</h3>
                         <div class="formulario">
                             {{ Form::open(array('url' => 'pedido/agregar', 'class' => 'borde', 'role' => 'form')) }}
                                 <div class="form-group">
-                                    <label for="nombre">Nombre y apellido</label>
+                                    <label for="nombre">{{ Lang::get('html.contacto.apeynom') }}</label>
                                     {{Form::text('nombre', Input::old('nombre'),  array('id' => 'nombre','class' => 'form-control', 'required' => true))}}    
                                     <!--<input type="type" class="form-control" id="ejemplo_email_1"
                                            placeholder="" name="nombre">-->
                                 </div>
                                 <div class="form-group">
-                                    <label for="empresa">Empresa</label>
+                                    <label for="empresa">{{ Lang::get('html.contacto.empresa') }}</label>
                                     {{Form::text('empresa', Input::old('empresa'),  array('id' => 'empresa','class' => 'form-control'))}} 
                                     <!--<input type="type" class="form-control" id="ejemplo_password_1" 
                                            placeholder="" name="empresa">-->
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label for="email">{{ Lang::get('html.contacto.email') }}</label>
                                     {{Form::email('email', Input::old('email'),  array('id' => 'email','class' => 'form-control', 'required' => true))}} 
                                     <!--<input type="email" class="form-control" id="ejemplo_password_1" 
                                            placeholder="" name="email">-->
                                 </div>
                                 <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
+                                    <label for="telefono">{{ Lang::get('html.contacto.telefono') }}</label>
                                     {{Form::text('telefono', Input::old('telefono'),  array('id' => 'telefono','class' => 'form-control', 'required' => true))}} 
                                     <!--<input type="type" class="form-control" id="ejemplo_password_1" 
                                            placeholder="" name="telefono">-->
                                 </div>
                                 <div class="form-group">
-                                    <label for="consulta">Comentarios</label>
+                                    <label for="consulta">{{ Lang::get('html.contacto.comentarios') }}</label>
                                     {{Form::textarea('consulta', Input::old('consulta'),  array('id' => 'consulta','class' => 'form-control', 'rows' => 3))}} 
                                     <!--<textarea class="form-control" rows="3" name="consulta"></textarea>-->
                                 </div>
-                                <button type="submit" class="btn">Enviar</button>
+                                <button type="submit" class="btn">{{ Lang::get('html.contacto.boton_enviar') }}</button>
                             {{ Form::close() }}
                         </div>
                     </div>

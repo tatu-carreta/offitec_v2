@@ -3,15 +3,15 @@
     <head>
         @section('head')
         <meta charset="UTF-8">
-        <title>OFFITEC - Muebles de oficina. Deco casa. En La Plata y Lomas de Zamora.</title>
+        <title>{{ Lang::get('html.head.title') }}</title>
         <meta property="og:image" content="{{URL::to('images/marca-face.png')}}"/>
 
         <!-- abre LINK -->
         <link href="favicon.ico" rel="shortcut icon">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-        <meta name="description" content="DISEÑO / OFICINA / CASA. Equipamiento integral. Muebles, sillas, sillones, cortinas y complementos. Asesoramiento profesional. Muebles a medida">
-        <meta name="Keywords" content="Offitec, equipamiento de oficinas, muebles, sillas, sillones, cortinas, complementos, asesoramiento, muebles a medida, La Plata.">
+        <meta name="description" content="{{ Lang::get('html.head.description') }}">
+        <meta name="Keywords" content="{{ Lang::get('html.head.keywords') }}">
         <meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1">
         
         <!-- B O O T S T R A P -->
@@ -112,7 +112,7 @@
                         <div class="col-md-12">
                             <h1 class="logo pull-left"><a href="{{URL::to('/')}}" ><img alt="logo" src="{{URL::to('images/logo_offitec.png')}}"></a></h1>
                              <!-- B T N   C A R R I T O -->
-                            <a href="{{URL::to('carrito')}}" class="btnCarrito active"><span>Presupuesto: {{Cart::count(false)}}</span><i class="fa fa-shopping-cart fa-lg"></i></a>
+                            <a href="{{URL::to('carrito')}}" class="btnCarrito active"><span>{{ Lang::get('html.presupuesto') }}: {{Cart::count(false)}}</span><i class="fa fa-shopping-cart fa-lg"></i></a>
                             
                             <!-- VENTANA CARRITO -->
                             @if(Session::has('producto_carrito_subido'))
@@ -123,7 +123,7 @@
                                         <a href="{{URL::to('carrito')}}" class="">
                                         {{--<img class="imgArtPedido" src="@if(!is_null(Session::get('producto_carrito')->item()->imagen_destacada())){{ URL::to(Session::get('producto_carrito')->item()->imagen_destacada()->carpeta.Session::get('producto_carrito')->item()->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="">--}}
                                         <i class="fa fa-shopping-cart fa-2x"></i>
-                                        <p>El producto fue agregado. <br>Ingrese a PRESUPUESTO<br> para finalizar.</p>
+                                        <p>{{ Lang::get('html.ventana_producto') }}</p>
                                         {{--<span>Cod: {{ Session::get('producto_carrito')->item()->titulo }}</span>--}}
                                         </a>
                                         <div class="cerrarEmergente cerrarVentanaCarrito"><i class="fa fa-times fa-lg"></i></div>
@@ -177,7 +177,7 @@
                                 <a  class="data-fiscal" href="http://qr.afip.gob.ar/?qr=B2xopj0onm6SrChQuHtxHQ,,"   target="_F960AFIPInfo"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg"  border="0"></a>
                                 <!--/data fiscal -->
                                 <div class="clearfix"></div>
-                                <p class="firmalaura">Copyright © OFFITEC 2015 - Desarrollo web: <a href="http://www.laurachuburu.com.ar/" target="_blank">www.laurachuburu.com.ar</a></p>
+                                <p class="firmalaura">{{ Lang::get('html.copyright') }} <a href="http://www.laurachuburu.com.ar/" target="_blank">www.laurachuburu.com.ar</a></p>
                             </div>
                         </div>
 

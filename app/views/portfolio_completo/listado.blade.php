@@ -29,10 +29,10 @@
             @endif
 
             @if(!Auth::check())
-                <a href="{{URL::to('portfolio_completo/'.$i->url)}}">
+                <a href="{{URL::to('portfolio_completo/'.$i->lang()->url)}}">
             @endif
-                        <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->titulo}}">
-                <p class="pull-left">{{ $i->titulo }}</p>
+                        <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
+                <p class="pull-left">{{ $i->lang()->titulo }}</p>
             @if(!Auth::check())
                 </a>
             @endif

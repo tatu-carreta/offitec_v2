@@ -46,8 +46,8 @@
         
         <div class="row">
             <div class="col-md-12">
-                    <h2 class="prePresentacion">DISEÑO • OFICINA • CASA</h2>
-                    <h2 class="presentacion">Equipamiento integral. Muebles, sillas, sillones, cortinas y complementos. Asesoramiento profesional. Muebles a medida. Envíos a todo el país.</h2>
+                    <h2 class="prePresentacion">{{ Lang::get('html.prePresentacion') }}</h2>
+                    <h2 class="presentacion">{{ Lang::get('html.presentacion') }}</h2>
                 <div class="@section('class-redes-sociales') redes @show">
                     <a class="facebook" href="https://www.facebook.com/profile.php?id=100001265423883&fref=ts" target="_blank"></a>
                     <a class="google" href="https://plus.google.com/101901769123903199376/posts" target="_blank"></a>
@@ -58,7 +58,7 @@
         
         <div class="row carrouselProdHome carousel-oculto">
             @if(!Auth::check())
-                <p class="infoCarritoHome" style="text-align:center"><i class="fa fa-shopping-cart"></i><strong>CONSULTE PRESUPUESTO:</strong> seleccione los productos y le enviaremos el presupuesto por email.</p>
+                <p class="infoCarritoHome" style="text-align:center"><i class="fa fa-shopping-cart"></i>{{ Lang::get('html.consulte_presupuesto') }}</p>
             @endif
             <div id="owl-demo-prod">
                 @if(count($items_home) > 0)
@@ -105,9 +105,9 @@
                                         <div class="divImgProd">
                                             <img class="lazy" src="@if(!is_null($item->imagen_destacada())){{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$item->titulo}}">
                                             @if($item->producto()->oferta())
-                                                <span class="bandaOfertas">OFERTA: ${{$item->producto()->precio(2)}} <span>(antes: ${{$item->producto()->precio(1)}})</span></span>
+                                                <span class="bandaOfertas">{{ Str::upper(Lang::get('html.oferta')) }}: ${{$item->producto()->precio(2)}} <span>({{ Str::lower(Lang::get('html.oferta_antes')) }}: ${{$item->producto()->precio(1)}})</span></span>
                                             @elseif($item->producto()->nuevo())
-                                                <span class="bandaNuevos">NUEVO</span>
+                                                <span class="bandaNuevos">{{ Str::upper(Lang::get('html.nuevo')) }}</span>
                                             @endif
                                         </div>
                                     </a>
@@ -115,9 +115,9 @@
                                         <span class="pull-left">{{ $item->lang()->titulo }}</span>
                                         @if(!Auth::check())
                                             @if($c = Cart::search(array('id' => $item->producto()->id)))
-                                                <a href="{{URL::to('carrito/borrar/'.$item->producto()->id.'/'.$c[0].'/home/h')}}" class="carrito boton-presupuestar btn pull-right"><i class="fa fa-check-square-o"></i>Presupuestar</a>
+                                                <a href="{{URL::to('carrito/borrar/'.$item->producto()->id.'/'.$c[0].'/home/h')}}" class="carrito boton-presupuestar btn pull-right"><i class="fa fa-check-square-o"></i>{{ Lang::get('html.presupuestar') }}</a>
                                             @else
-                                                <a href="{{URL::to('carrito/agregar/'.$item->producto()->id.'/home/h')}}" class="btn boton-presupuestar pull-right"><i class="fa fa-square-o"></i>Presupuestar</a>
+                                                <a href="{{URL::to('carrito/agregar/'.$item->producto()->id.'/home/h')}}" class="btn boton-presupuestar pull-right"><i class="fa fa-square-o"></i>{{ Lang::get('html.presupuestar') }}</a>
                                             @endif
                                         @endif
                                         <div class="clearfix"></div>
@@ -152,15 +152,15 @@
             <div class="col-md-12">
                 <div class="info">
                     <div class="infoizq">
-                        <h3>Offitec en La Plata </h3>
-                        <p>Calle 39 N° 833 e/ 11 y 12 <br>Teléfono: (0221) 4221273 / Fax: (0221) 4273777 <br>Email: <a href="mailto:ventas@offitec.com">ventas@offitec.com</a></p>
+                        <h3>{{ Lang::get('html.offitec_en_laplata.titulo') }}</h3>
+                        <p>{{ Lang::get('html.offitec_en_laplata.descripcion') }}</p>
                         <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.8274329658516!2d-57.96578080000005!3d-34.9107799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e7b4490665a3%3A0x29c5e5f3106069f4!2sCalle+39+833%2C+B1902AQG+La+Plata%2C+Buenos+Aires!5e0!3m2!1ses-419!2sar!4v1434379991554"></iframe>
                     </div>
                 </div>
                 
                 <div class="info">
-                    <h3>Offitec en Lomas de Zamora</h3>
-                    <p>Av. Hipólito Yrigoyen 9275 (ex Av. Pavón) <br>Teléfono: (011) 4244 4099 <br>Email: <a href="mailto:lomas@offitec.com">lomas@offitec.com</a></p>
+                    <h3>{{ Lang::get('html.offitec_en_lomas.titulo') }}</h3>
+                    <p>{{ Lang::get('html.offitec_en_lomas.descripcion') }}</p>
                     <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.6837661038417!2d-58.403364599999996!3d-34.763558100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd2ed28db40b9%3A0xb8d7b47f437f2ca2!2sAv.+Hip%C3%B3lito+Yrigoyen+9275%2C+B1828CGE+Lomas+de+Zamora%2C+Buenos+Aires!5e0!3m2!1ses-419!2sar!4v1434380049442"></iframe>
                 </div>
             </div>

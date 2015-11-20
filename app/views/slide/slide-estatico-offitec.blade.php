@@ -7,33 +7,33 @@
                            <li>
                                 <img  src="{{URL::to('images/slide3.jpg')}}" alt="image02" />
                                 <div class="ei-title">
-                                    <h3>diseño</h3>
+                                    <h3>{{ Lang::get('html.slide_offitec.imagen1') }}</h3>
                                 </div>
                             </li>
                             <li>
                                 <img src="{{URL::to('images/mesaSillonBlanco1.jpg')}}" alt="image01" />
                                 <div class="ei-title">
-                                    <h3>estilo</h3>
+                                    <h3>{{ Lang::get('html.slide_offitec.imagen2') }}</h3>
                                 </div>
                             </li>
                             <li>
                                 <img src="{{URL::to('images/sillasVerde.jpg')}}" alt="image04"/>
                                 <div class="ei-title">
-                                   <h3>ergonomía</h3>
+                                   <h3>{{ Lang::get('html.slide_offitec.imagen3') }}</h3>
                                 </div>
                             </li>
                        
                             <li>
                                 <img src="{{URL::to('images/slide1blanco.jpg')}}" alt="image01" />
                                 <div class="ei-title">
-                                    <h3>funcionalidad</h3>
+                                    <h3>{{ Lang::get('html.slide_offitec.imagen4') }}</h3>
                                 </div>
                             </li>
                             
                             <li>
                                 <img src="{{URL::to('images/slide4blanco.jpg')}}" alt="image03"/>
                                 <div class="ei-title">
-                                    <h3>confort</h3>
+                                    <h3>{{ Lang::get('html.slide_offitec.imagen5') }}</h3>
                                 </div>
                             </li>
                          

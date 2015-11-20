@@ -26,10 +26,10 @@
 <script src="{{URL::to('js/ckeditorLimitado.js')}}"></script>
 <script src="{{URL::to('js/producto-funcs.js')}}"></script>
 <section class="container">    
-        {{ Form::open(array('url' => 'admin/producto/editar', 'files' => true, 'role' => 'form', 'onsubmit' => 'return validatePrecioProd(this);')) }}
+        {{ Form::open(array('url' => $prefijo.'/admin/producto/editar', 'files' => true, 'role' => 'form', 'onsubmit' => 'return validatePrecioProd(this);')) }}
         <h2><span>Editar producto</span></h2>
         <div class="marginBottom2">
-            <a class="volveraSeccion" href="@if($seccion_next != 'null'){{URL::to('/'.Seccion::find($seccion_next) -> menuSeccion() -> url)}}@else{{URL::to('/')}}@endif"><i class="fa fa-caret-left"></i>Volver a @if($seccion_next != 'null'){{ Seccion::find($seccion_next) -> menuSeccion() -> nombre }}@else Home @endif</a>
+            <a class="volveraSeccion" href="@if($seccion_next != 'null'){{URL::to('/'.Seccion::find($seccion_next) -> menuSeccion()->lang() -> url)}}@else{{URL::to('/')}}@endif"><i class="fa fa-caret-left"></i>Volver a @if($seccion_next != 'null'){{ Seccion::find($seccion_next) -> menuSeccion()->lang() -> nombre }}@else Home @endif</a>
         </div>
         <div class="row datosProducto marginBottom2">
             <!-- Abre columna de descripción de Producto -->
@@ -105,7 +105,7 @@
                                             <span><input id="menu{{$men->id}}" type="checkbox" name="secciones[]" value="{{$seccion->id}}" @if(in_array($seccion->id, $item->secciones->lists('id'))) checked="true" @endif @if($seccion->id == $seccion_next) disabled @endif>{{-- @if($seccion->titulo != ""){{$seccion->titulo}}@else Sección {{$seccion->id}} @endif --}}</span>
                                         @endforeach
                                     </div>
-                                    <div><label for="menu{{$men->id}}">{{$men->nombre}}</label></div>
+                                    <div><label for="menu{{$men->id}}">{{$men->lang()->nombre}}</label></div>
                                 @endif
                             </div>
                             @endforeach
@@ -127,11 +127,11 @@
                 @if(!is_null($item->imagen_destacada()))
                     <div class="divCargaImgProducto">
                         <div class="marginBottom1 divCargaImg">
-                            <img alt="{{$item->titulo}}"  src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}">
+                            <img alt="{{$item->lang()->titulo}}"  src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}">
                             <i onclick="borrarImagenReload('{{ URL::to('admin/imagen/borrar') }}', '{{$item->imagen_destacada()->id}}');" class="fa fa-times-circle fa-lg"></i>
                         </div>
                         <input type="hidden" name="imagen_portada_editar" value="{{$item->imagen_destacada()->id}}">
-                        <input class="form-control" type="text" name="epigrafe_imagen_portada_editar" placeholder="Ingrese una descripción de la foto" value="{{ $item->imagen_destacada()->epigrafe }}">
+                        <input class="form-control" type="text" name="epigrafe_imagen_portada_editar" placeholder="Ingrese una descripción de la foto" value="{{ $item->imagen_destacada()->lang()->epigrafe }}">
                     </div>
                 @else
                     @include('imagen.modulo-imagen-angular-crop')
@@ -148,7 +148,7 @@
 
             <div class="border-top">
                 <input type="submit" value="Publicar" class="btn btn-primary marginRight5">
-                <a href="@if($seccion_next != 'null'){{URL::to('/'.Seccion::find($seccion_next) -> menuSeccion() -> url)}}@else{{URL::to('/')}}@endif" class="btn btn-default">Cancelar</a>
+                <a href="@if($seccion_next != 'null'){{URL::to('/'.Seccion::find($seccion_next) -> menuSeccion()->lang() -> url)}}@else{{URL::to('/')}}@endif" class="btn btn-default">Cancelar</a>
             </div>
 
 

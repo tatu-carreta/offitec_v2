@@ -9,5 +9,5 @@
 </script>
 <div id="divLoading">
     <img width="48" height="48" src="{{URL::to('images/loading.gif')}}">
-    <p>Por favor aguarde...</p>
+    <p>{{ Lang::get('html.texto_loading') }}</p>
 </div>

@@ -18,7 +18,7 @@
                     </span>
                     <span class="pull-right">
                         @if(Auth::user()->can("editar_item"))
-                            <a href="{{URL::to('admin/'.$seccion->menuSeccion()->modulo()->nombre.'/editar/'.$i->id.'/seccion')}}" data='{{$seccion->id}}'><i class="fa fa-pencil fa-lg"></i></a>
+                            <a href="{{URL::to($prefijo.'/admin/'.$seccion->menuSeccion()->modulo()->nombre.'/editar/'.$i->id.'/seccion')}}" data='{{$seccion->id}}'><i class="fa fa-pencil fa-lg"></i></a>
                         @endif
                         @if(Auth::user()->can("borrar_item"))
                             <i onclick="borrarData('{{URL::to('admin/item/borrar')}}', '{{$i->id}}');" class="fa fa-times fa-lg"></i>
@@ -29,10 +29,10 @@
             @endif
 
             @if(!Auth::check())
-                <a href="{{URL::to('muestra/'.$i->url)}}">
+                <a href="{{URL::to('muestra/'.$i->lang()->url)}}">
             @endif
-                <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->titulo}}">
-                <p class="pull-left">{{ $i->titulo }}</p>
+                <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
+                <p class="pull-left">{{ $i->lang()->titulo }}</p>
             @if(!Auth::check())
                 </a>
             @endif

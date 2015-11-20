@@ -13,20 +13,20 @@
     <script src="{{URL::to('js/divAlertaFuncs.js')}}"></script>
     @endif
     <section class="container">
-        {{ Form::open(array('url' => 'admin/portfolio_completo/editar', 'files' => true, 'role' => 'form')) }}
+        {{ Form::open(array('url' => $prefijo.'/admin/portfolio_completo/editar', 'files' => true, 'role' => 'form')) }}
             <h2 class="marginBottom2"><span>Carga y modificación de portfolio_completo</span></h2>
 
         @if(Auth::user()->can('cambiar_seccion_item'))
             <select name="seccion_nueva_id">
                 <option value="">Seleccione Nueva Sección</option>
                 @foreach($secciones as $seccion)
-                <option value="{{$seccion->id}}" @if($seccion->id == $item->seccionItem()->id) selected @endif>@if($seccion->nombre != ""){{$seccion->nombre}}@else Sección {{$seccion->id}} - {{$seccion->menuSeccion()->nombre}}@endif</option>
+                <option value="{{$seccion->id}}" @if($seccion->id == $item->seccionItem()->id) selected @endif>@if($seccion->lang()->nombre != ""){{$seccion->lang()->nombre}}@else Sección {{$seccion->id}} - {{$seccion->menuSeccion()->lang()->nombre}}@endif</option>
                 @endforeach
             </select>
         @endif
             
             <h3>Título del portfolio completo</h3>
-                <input class="block anchoTotal marginBottom" type="text" name="titulo" placeholder="Título" required="true" value="{{ $item->titulo }}" maxlength="50">
+                <input class="block anchoTotal marginBottom" type="text" name="titulo" placeholder="Título" required="true" value="{{ $item->lang()->titulo }}" maxlength="50">
                 
             <div class="row marginBottom2">
                 <!-- Abre columna de imágenes -->
@@ -35,11 +35,11 @@
                 @if(!is_null($item->imagen_destacada()))
                     <div class="divCargaImgProducto">
                         <div class="marginBottom1 divCargaImg">
-                            <img alt="{{$item->titulo}}"  src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}">
+                            <img alt="{{$item->lang()->titulo}}"  src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}">
                             <i onclick="borrarImagenReload('{{ URL::to('admin/imagen/borrar') }}', '{{$item->imagen_destacada()->id}}');" class="fa fa-times fa-lg"></i>
                         </div>
                         <input type="hidden" name="imagen_portada_editar" value="{{$item->imagen_destacada()->id}}">
-                        <input class="block anchoTotal marginBottom" type="text" name="epigrafe_imagen_portada_editar" placeholder="Ingrese una descripción de la foto" value="{{ $item->imagen_destacada()->epigrafe }}">
+                        <input class="block anchoTotal marginBottom" type="text" name="epigrafe_imagen_portada_editar" placeholder="Ingrese una descripción de la foto" value="{{ $item->imagen_destacada()->lang()->epigrafe }}">
                     </div>
                 @else
                         @include('imagen.modulo-imagen-angular-crop')
@@ -53,7 +53,7 @@
 
             <h3>Cuerpo</h3>
             <div class="divEditorTxt marginBottom2">
-                <textarea id="texto" contenteditable="true" name="cuerpo">{{ $item->portfolio()->portfolio_completo()->cuerpo }}</textarea>
+                <textarea id="texto" contenteditable="true" name="cuerpo">{{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}</textarea>
             </div>
             
 

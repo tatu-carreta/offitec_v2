@@ -48,7 +48,7 @@
 
         @else
             @if(Auth::check())
-                <div class="sinProductos">Sin productos</div>
+                <div class="sinProductos">{{ Lang::get('html.contenedor.sin_contenido', ['texto_modulo' => $texto_modulo]) }}</div>
             @endif
         @endif
 

@@ -26,6 +26,8 @@ Route::group(array('prefix' => Config::get('app.locale_prefix')), function() {
 
     Route::get('/contacto', 'HomeController@contacto');
 
+    Route::get('/contact', 'HomeController@contacto');
+
     Route::group(array('before' => 'guest'), function() {
 
         Route::get('login', 'UsuarioController@login', function() {

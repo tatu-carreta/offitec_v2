@@ -37,7 +37,7 @@
             <div class="col-md-12 marginBottom2">
                 <h2 class="pull-left">{{ $menu_basic->lang()->nombre }}</h2>
                 @if(!Auth::check())
-                    <p class="infoCarrito marginBottom2"><i class="fa fa-shopping-cart"></i><strong>CONSULTE PRESUPUESTO:</strong> seleccione los productos y le enviaremos el presupuesto por email.</p>
+                    <p class="infoCarrito marginBottom2"><i class="fa fa-shopping-cart"></i>{{ Lang::get('html.consulte_presupuesto') }}</p>
                 @endif
                 
                 @if(Auth::check())
@@ -62,7 +62,7 @@
             @if((!$hay_datos) && (!Auth::check()))
                 <div class="row">
                     <div class="col-md-12">
-                        No hay {{$texto_modulo}} aún.
+                        {{ Lang::get('html.contenedor.no_items', ['texto_modulo' => $texto_modulo]) }}
                     </div>
                 </div>
             @else
