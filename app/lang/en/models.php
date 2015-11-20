@@ -8,8 +8,8 @@ return array(
       |
      */
     'carrito' => array(
-        'agregado_presupuesto' => 'Product add to budget.',
-        'quitado_presupuesto' => 'Product delete to budget.'
+        'agregado_presupuesto' => 'The product was added to the estimate.',
+        'quitado_presupuesto' => 'The product was removed from the estimate.'
     ),
     'cliente' => array(
         'email_invalido' => 'Invalid email.',

@@ -9,18 +9,18 @@ return array(
      */
     'error_carga_pagina' => 'Error loading page.',
     'carrito' => array(
-        'maximo_permitido' => 'The maximum budget is :cant products.',
+        'maximo_permitido' => '6 products maximum for each estimate.',
     ),
     'cliente' => array(
-        'datos_consulta_contacto_incorrectos' => 'Contact details for sending budget are incorrect.',
-        'consulta_no_enviada' => 'The mail could not be sent.',
-        'consulta_enviada' => 'The mail was sent successfully.',
+        'datos_consulta_contacto_incorrectos' => 'Delivery information is incorrect.',
+        'consulta_no_enviada' => 'The email could not be sent.',
+        'consulta_enviada' => 'The email was sent correctly.',
     ),
     'pedido' => array(
-        'datos_consulta_contacto_incorrectos' => 'Contact details for sending budget are incorrect.',
-        'debe_tener_producto' => 'To make the budget must select at least one product.',
-        'error_realizar_pedido' => 'There was an error when ordering. Please try again in a few minutes.',
-        'presupuesto_enviado' => 'The budget was sent.',
-        'presupuesto_no_enviado' => 'The mail with the summary of its budget could not be sent correctly. Please try again in a few minutes.',
+        'datos_consulta_contacto_incorrectos' => 'Delivery information is incorrect.',
+        'debe_tener_producto' => 'To receive your estimate you should select at least one item.',
+        'error_realizar_pedido' => 'There was an error when placing your order. Try again in a few minutes.',
+        'presupuesto_enviado' => 'The estimate was sent.',
+        'presupuesto_no_enviado' => 'The email containing your estimate could not be properly sent. Try again in a few minutes.',
     ),
 );
