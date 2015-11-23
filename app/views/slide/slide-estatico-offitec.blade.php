@@ -66,18 +66,18 @@
                     <div class="carousel-home carousel-oculto">
                         <div id="owl-demo2">
                             
-                                <div class="item"><a class="boton-violeta" href="{{URL::to('muebles-gerenciales')}}">Muebles<br>gerenciales</a></div>
-                                <div class="item"><a class="boton-rosa" href="{{URL::to('muebles-operativos')}}">Muebles<br>operativos</a></div>
-                                <div class="item"><a class="boton-verdeagua" href="{{URL::to('mesas-de-reunion')}}">Mesas <br> de reunión</a></div>
-                                <div class="item"><a class="boton-amarillo" href="{{URL::to('mesas-bajas')}}">Mesas <br>bajas</a></div>
-                                <div class="item"><a class="boton-azul" href="{{URL::to('muebles-de-guardado')}}">Muebles <br> de guardado</a></div>
-                                <div class="item"><a class="boton-violeta" href="{{URL::to('asientos-gerenciales')}}">Asientos<br>gerenciales</a></div>
-                                <div class="item"><a class="boton-rosa" href="{{URL::to('asientos-operativos')}}">Asientos<br>operativos</a></div>
-                                <div class="item"><a class="boton-verdeagua" href="{{URL::to('sillas-de-visita')}}">Sillas <br>de visita</a></div>
-                                <div class="item"><a class="boton-amarillo" href="{{URL::to('sillones-de-visita')}}">Sillones <br>de visita</a></div>
-                                <div class="item"><a class="boton-azul" href="{{URL::to('cortinas-a-medida')}}">Cortinas<br> a medida</a></div>
-                                <div class="item"><a class="boton-violeta" href="{{URL::to('accesorios-y-complementos')}}">Accesorios <br>y complementos</a></div>
-                                <div class="item"><a class="boton-rosa" href="{{URL::to('deco-casa')}}">Deco <br>casa</a></div>
+                                <div class="item"><a class="boton-violeta" href="{{URL::to(Lang::get('catalogo_offitec.cat1.url'))}}">{{ Lang::get('catalogo_offitec.cat1.titulo') }}</a></div>
+                                <div class="item"><a class="boton-rosa" href="{{URL::to(Lang::get('catalogo_offitec.cat2.url'))}}">{{ Lang::get('catalogo_offitec.cat2.titulo') }}</a></div>
+                                <div class="item"><a class="boton-verdeagua" href="{{URL::to(Lang::get('catalogo_offitec.cat3.url'))}}">{{ Lang::get('catalogo_offitec.cat3.titulo') }}</a></div>
+                                <div class="item"><a class="boton-amarillo" href="{{URL::to(Lang::get('catalogo_offitec.cat4.url'))}}">{{ Lang::get('catalogo_offitec.cat4.titulo') }}</a></div>
+                                <div class="item"><a class="boton-azul" href="{{URL::to(Lang::get('catalogo_offitec.cat5.url'))}}">{{ Lang::get('catalogo_offitec.cat5.titulo') }}</a></div>
+                                <div class="item"><a class="boton-violeta" href="{{URL::to(Lang::get('catalogo_offitec.cat6.url'))}}">{{ Lang::get('catalogo_offitec.cat6.titulo') }}</a></div>
+                                <div class="item"><a class="boton-rosa" href="{{URL::to(Lang::get('catalogo_offitec.cat7.url'))}}">{{ Lang::get('catalogo_offitec.cat7.titulo') }}</a></div>
+                                <div class="item"><a class="boton-verdeagua" href="{{URL::to(Lang::get('catalogo_offitec.cat8.url'))}}">{{ Lang::get('catalogo_offitec.cat8.titulo') }}</a></div>
+                                <div class="item"><a class="boton-amarillo" href="{{URL::to(Lang::get('catalogo_offitec.cat9.url'))}}">{{ Lang::get('catalogo_offitec.cat9.titulo') }}</a></div>
+                                <div class="item"><a class="boton-azul" href="{{URL::to(Lang::get('catalogo_offitec.cat10.url'))}}">{{ Lang::get('catalogo_offitec.cat10.titulo') }}</a></div>
+                                <div class="item"><a class="boton-violeta" href="{{URL::to(Lang::get('catalogo_offitec.cat11.url'))}}">{{ Lang::get('catalogo_offitec.cat11.titulo') }}</a></div>
+                                <div class="item"><a class="boton-rosa" href="{{URL::to(Lang::get('catalogo_offitec.cat12.url'))}}">{{ Lang::get('catalogo_offitec.cat12.titulo') }}</a></div>
                             
                         </div>
                     </div>

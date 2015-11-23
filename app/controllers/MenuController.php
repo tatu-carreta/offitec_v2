@@ -110,7 +110,7 @@ class MenuController extends BaseController {
                         break;
                 }
 
-                $this->array_view['html'] = $menu->modulo()->nombre . ".listado";
+                $this->array_view['html'] = $menu_basic->modulo()->nombre . ".listado";
                 $this->array_view['texto_agregar'] = $textoAgregar;
                 $this->array_view['texto_modulo'] = $texto_modulo;
 
