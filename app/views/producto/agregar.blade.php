@@ -29,7 +29,7 @@
         {{ Form::open(array('url' => 'admin/producto/agregar', 'files' => true, 'role' => 'form', 'onsubmit' => 'return validatePrecioProd(this);')) }}
         <h2><span>Nuevo producto</span></h2>
         <div class="marginBottom2">
-            <a class="volveraSeccion" href="{{URL::to('/'.Seccion::find($seccion_id) -> menuSeccion() -> url)}}"><i class="fa fa-caret-left"></i>Volver a {{ Seccion::find($seccion_id) -> menuSeccion() -> nombre }}</a>
+            <a class="volveraSeccion" href="{{URL::to('/'.Seccion::find($seccion_id) -> menuSeccion()->lang() -> url)}}"><i class="fa fa-caret-left"></i>Volver a {{ Seccion::find($seccion_id) -> menuSeccion()->lang() -> nombre }}</a>
         </div>
         <div class="row datosProducto">
             <!-- Abre columna de descripción de Producto -->
@@ -105,7 +105,7 @@
                                         <span><input id="menu{{$men->id}}" type="checkbox" name="secciones[]" value="{{$seccion->id}}" @if($seccion->id == $seccion_id) checked="true" disabled @endif>{{-- @if($seccion->titulo != ""){{$seccion->titulo}}@else Sección {{$seccion->id}} @endif --}}</span>
                                     @endforeach
                                 </div>
-                                <div><label for="menu{{$men->id}}">{{$men->nombre}}</label></div>
+                                <div><label for="menu{{$men->id}}">{{$men->lang()->nombre}}</label></div>
                             @endif
                         </div>
                         @endforeach
@@ -130,7 +130,7 @@
 
             <div class="border-top">
                 <input type="submit" value="Publicar" class="btn btn-primary marginRight5">
-                <a href="{{URL::to('/'.Seccion::find($seccion_id) -> menuSeccion() -> url)}}" class="btn btn-default">Cancelar</a>
+                <a href="{{URL::to('/'.Seccion::find($seccion_id) -> menuSeccion()->lang() -> url)}}" class="btn btn-default">Cancelar</a>
             </div>
 
 

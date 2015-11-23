@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-md-12 marginBottom2">
                 <h2 class="pull-left">{{ $menu_basic->lang()->nombre }}</h2>
-                @if(!Auth::check())
+                @if(!Auth::check() && ($menu_basic->modulo()->nombre == 'producto'))
                     <p class="infoCarrito marginBottom2"><i class="fa fa-shopping-cart"></i>{{ Lang::get('html.consulte_presupuesto') }}</p>
                 @endif
                 
