@@ -4458,3 +4458,11 @@ Stack trace:
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
 #1 {main} [] []
+[2015-11-25 17:29:11] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\controllers\PortfolioCompletoController.php:49
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-11-25 17:29:12] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\controllers\PortfolioCompletoController.php:49
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

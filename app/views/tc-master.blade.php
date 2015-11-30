@@ -139,14 +139,12 @@
                     </div>
                 </div>
             </header>  
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Lang::get('locales.label') }} <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @foreach(Lang::get('locales.option') as $mKey => $mLanguage)
-                        <li>{{ HTML::linkAction('BaseController@setLocale', $mLanguage, array($mKey, $type, $ang)) }}</li>
-                    @endforeach
-                </ul>
-            </li>
+           
+            <ul class="idiomas">
+                @foreach(Lang::get('locales.option') as $mKey => $mLanguage)
+                    <li>{{ HTML::linkAction('BaseController@setLocale', $mLanguage, array($mKey, $type, $ang)) }}</li>
+                @endforeach
+             </ul>
 
             @yield('slide-estatico') 
 
