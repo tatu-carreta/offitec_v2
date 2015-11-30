@@ -111,9 +111,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="logo pull-left"><a href="{{URL::to('/')}}" ><img alt="logo" src="{{URL::to('images/logo_offitec.png')}}"></a></h1>
-                             <!-- B T N   C A R R I T O -->
-                            <a href="{{URL::to('carrito')}}" class="btnCarrito active"><span>{{ Lang::get('html.presupuesto') }}: {{Cart::count(false)}}</span><i class="fa fa-shopping-cart fa-lg"></i></a>
-                            
+
+                            <div class="pull-right">
+                                <!-- B T N   I D I O M A S -->
+                                <ul class="idiomas">
+                                    @foreach(Lang::get('locales.option') as $mKey => $mLanguage)
+                                        <li>{{ HTML::linkAction('BaseController@setLocale', $mLanguage, array($mKey, $type, $ang)) }}</li>
+                                    @endforeach
+                                </ul>
+
+                                <!-- B T N   C A R R I T O -->
+                                <a href="{{URL::to('carrito')}}" class="btnCarrito active"><span>{{ Lang::get('html.presupuesto') }}: {{Cart::count(false)}}</span><i class="fa fa-shopping-cart fa-lg"></i></a>
+                            </div>
+
                             <!-- VENTANA CARRITO -->
                             @if(Session::has('producto_carrito_subido'))
                                 @if(Session::get('producto_carrito_subido'))
@@ -139,12 +149,6 @@
                     </div>
                 </div>
             </header>  
-           
-            <ul class="idiomas">
-                @foreach(Lang::get('locales.option') as $mKey => $mLanguage)
-                    <li>{{ HTML::linkAction('BaseController@setLocale', $mLanguage, array($mKey, $type, $ang)) }}</li>
-                @endforeach
-             </ul>
 
             @yield('slide-estatico') 
 
