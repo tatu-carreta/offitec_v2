@@ -585,7 +585,7 @@ class Item extends Eloquent {
                                 $epigrafe_imagen_portada = NULL;
                             }
 
-                            $imagen_crop = Imagen::agregarImagenCropped($imagen, $ampliada, $epigrafe_imagen_portada);
+                            $imagen_crop = Imagen::agregarImagenCroppedArray($imagen, $ampliada, $epigrafe_imagen_portada);
 
                             if (!$imagen_crop['error']) {
 
