@@ -331,6 +331,86 @@ class Imagen extends Eloquent {
 
         return $respuesta;
     }
+    
+    
+    public static function agregarImagenCroppedArray($imagen_portada_crop, $ampliada, $epigrafe_imagen_portada) {
+
+        $respuesta = array();
+
+        $carpeta = "/uploads/";
+
+        $datos_ampliada = array(
+            'nombre' => $ampliada,
+            //'epigrafe' => $epigrafe_imagen_portada,
+            'carpeta' => $carpeta,
+            'tipo' => 'G',
+            'ampliada' => '',
+            'estado' => 'A',
+            'fecha_carga' => date("Y-m-d H:i:s"),
+            'usuario_id_carga' => Auth::user()->id
+        );
+
+        $imagen = static::create($datos_ampliada);
+
+        $datos_lang = array(
+            'epigrafe' => $epigrafe_imagen_portada,
+            'estado' => 'A',
+            'fecha_carga' => date("Y-m-d H:i:s"),
+            'usuario_id_carga' => Auth::user()->id
+        );
+
+        $idiomas = Idioma::where('estado', 'A')->get();
+
+        foreach ($idiomas as $idioma) {
+            /*
+              if ($idioma->codigo != Config::get('app.locale')) {
+              $datos_lang['url'] = $idioma->codigo . "/" . $datos_lang['url'];
+              }
+             * 
+             */
+            $imagen->idiomas()->attach($idioma->id, $datos_lang);
+        }
+
+        $datos_chica = array(
+            'nombre' => $imagen_portada_crop,
+            //'epigrafe' => $epigrafe_imagen_portada,
+            'carpeta' => $carpeta,
+            'tipo' => 'C',
+            'ampliada' => $imagen->id,
+            'estado' => 'A',
+            'fecha_carga' => date("Y-m-d H:i:s"),
+            'usuario_id_carga' => Auth::user()->id
+        );
+
+        $imagen_chica = static::create($datos_chica);
+
+        $datos_lang = array(
+            'epigrafe' => $epigrafe_imagen_portada,
+            'estado' => 'A',
+            'fecha_carga' => date("Y-m-d H:i:s"),
+            'usuario_id_carga' => Auth::user()->id
+        );
+
+        $idiomas = Idioma::where('estado', 'A')->get();
+
+        foreach ($idiomas as $idioma) {
+            /*
+              if ($idioma->codigo != Config::get('app.locale')) {
+              $datos_lang['url'] = $idioma->codigo . "/" . $datos_lang['url'];
+              }
+             * 
+             */
+            $imagen_chica->idiomas()->attach($idioma->id, $datos_lang);
+        }
+
+        //Mensaje correspondiente a la agregacion exitosa
+        $respuesta['mensaje'] = 'Imagen creada.';
+        $respuesta['error'] = false;
+        $respuesta['data'] = $imagen_chica;
+        //return Response::json('success', 200);
+
+        return $respuesta;
+    }
 
     public static function uploadImageAngular($imagen_crop, $imagen_ampliada) {
 
@@ -617,6 +697,44 @@ class Imagen extends Eloquent {
             $respuesta['mensaje'] = 'Imagen eliminada.';
             $respuesta['error'] = false;
             $respuesta['data'] = $imagen;
+        }
+
+        return $respuesta;
+    }
+
+    public static function ordenarImagenItem($imagen_id, $orden, $item_id, $destacado) {
+        $respuesta = array();
+
+        $datos = array(
+            'imagen_id' => $imagen_id,
+            'orden' => $orden,
+            'item_id' => $item_id
+        );
+
+        $reglas = array(
+            'imagen_id' => array('integer'),
+            'orden' => array('integer'),
+            'item_id' => array('integer')
+        );
+
+        $validator = Validator::make($datos, $reglas);
+
+        if ($validator->fails()) {
+            $respuesta['mensaje'] = $validator;
+            $respuesta['error'] = true;
+        } else {
+
+            $input = array(
+                'item_id' => $item_id,
+                'imagen_id' => $imagen_id
+            );
+
+            $magen = DB::table('item_imagen')->where(
+                            $input)->update(array('orden' => $orden, 'destacado' => $destacado));
+
+            $respuesta['mensaje'] = 'Las imágenes han sido ordenadas.';
+            $respuesta['error'] = false;
+            $respuesta['data'] = $magen;
         }
 
         return $respuesta;

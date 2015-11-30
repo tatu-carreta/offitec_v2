@@ -5,7 +5,7 @@
     <section class="container" id="ng-app" ng-app="app">
         <div ng-controller="ImagenMultiple" nv-file-drop="" uploader="uploader" filters="customFilter, sizeLimit">
         {{ Form::open(array('url' => 'admin/portfolio_completo/agregar', 'files' => true, 'role' => 'form')) }}
-            <h2><span>Nueva obra</span></h2>
+            <h2><span>Nueva proyecto</span></h2>
             <div class="marginBottom2">
                 <a class="volveraSeccion" href="{{URL::to('/'.Seccion::find($seccion_id) -> menuSeccion()->lang() -> url)}}"><i class="fa fa-caret-left"></i>Volver a {{ Seccion::find($seccion_id) -> menuSeccion()->lang() -> nombre }}</a>
             </div>
@@ -13,32 +13,32 @@
             <div class="row">
                 <!-- Título del Producto, Obra o Muestra -->
                 <div class="col-md-6 divDatos divCargaTitulo">
-                    <h3>Título de la obra</h3>
+                    <h3>Título del proyecto</h3>
                     <div class="form-group fondoDestacado">
-                        <input class="form-control" type="text" name="titulo" placeholder="Título de la obra" required="true" maxlength="50">
-                        <p class="infoTxt"><i class="fa fa-info-circle"></i>No puede haber dos productos con igual nombre. Máximo 9 caracteres.</p>
+                        <input class="form-control" type="text" name="titulo" placeholder="Título del proyecto" required="true" maxlength="50">
+                        <p class="infoTxt"><i class="fa fa-info-circle"></i>No puede haber dos proyectos con igual nombre. Máximo 50 caracteres.</p>
                     </div>
                 </div>
-
-                <!-- Obra Destacada -->
+<!--
+                 Obra Destacada 
                 <div class="col-md-6 divDatos">
                     <h3>Destacado (opcional)</h3>
                     <div class="form-group fondoDestacado">
                         <p class="infoTxt"><i class="fa fa-info-circle"></i>...</p>
                     </div>
-                </div>
+                </div>-->
             </div>
             
             <div class="row marginBottom2">
                 <!-- Abre columna de imágenes -->
                 <div class="col-md-12 cargaImg">
-                	<div class="fondoDestacado">
-	                    <h4>Recorte de imágenes</h4>
-                            <input type="hidden" ng-model="url_public" ng-init="url_public = '{{URL::to('/')}}'">
-	                    @include('imagen.modulo-imagen-angular-crop-horizontal-multiples')
-    	                <div class="row">
+                    <div class="fondoDestacado">
+                        <h4>Recorte de imágenes</h4>
+                        <input type="hidden" ng-model="url_public" ng-init="url_public = '{{URL::to('/')}}'">
+                        @include('imagen.modulo-imagen-angular-crop-horizontal-multiples')
+                        <div class="row">
                             <div class="col-md-12" ng-show='imagenes_seleccionadas.length > 0'>
-                                <h4>Imágenes cargadas</h4>
+                                <h3>Imágenes cargadas</h3>
                             </div>
 
                             <div ng-repeat="img in imagenes_seleccionadas" class="imgSeleccionadas">
@@ -62,7 +62,7 @@
                 <div class="col-md-6 divDatos">
                     <!-- Texto Descriptivo del Producto u obra -->
                     <div class="divCargaTxtDesc">
-                        <h3>Texto descriptivo de la obra</h3>
+                        <h3>Texto descriptivo del proyecto</h3>
                         <div class="divEditorTxt fondoDestacado">
                             <textarea id="texto" contenteditable="true" name="cuerpo"></textarea>
                         </div>
@@ -87,8 +87,8 @@
                 </div>
 
 
-                <div class="col-md-6 divDatos">
-                    <!-- Indicar Sección a la que pertenece el producto -->
+<!--                <div class="col-md-6 divDatos">
+                     Indicar Sección a la que pertenece el producto 
                     <div class="divModIndicarSeccion">
                         <h3>Otras ubicaciones (opcional)</h3>
                         <div class="modIndicarSeccion">
@@ -106,7 +106,7 @@
                                 @endforeach
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             
             <div class="border-top">

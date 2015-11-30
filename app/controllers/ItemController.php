@@ -117,7 +117,7 @@ class ItemController extends BaseController {
 
         $seccion = Seccion::find(Input::get('seccion_id'));
 
-        $menu = $seccion->menuSeccion()->url;
+        $menu = $seccion->menuSeccion()->lang()->url;
         $ancla = '#' . $seccion->estado . $seccion->id;
 
         return Redirect::to('/' . $menu)->with('mensaje', $respuesta['mensaje'])->with('ancla', $ancla)->with('ok', true);

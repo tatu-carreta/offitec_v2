@@ -79,36 +79,13 @@ class MenuController extends BaseController {
 
                         $this->array_view['marcas_principales'] = $marcas_principales;
 
-                        $textoAgregar = "Nuevo Producto";
-                        $texto_modulo = "productos";
-                        break;
-                    case "noticia":
-                        //$this->array_view['ancla'] = "#" . $menu->estado . $menu->id;
-
-                        $textoAgregar = "Nueva Noticia";
-                        $texto_modulo = "noticias";
-                        break;
-                    case "evento":
-                        $textoAgregar = "Nuevo Evento";
-                        $texto_modulo = "eventos";
-                        break;
-                    case "portfolio_simple":
-                        $textoAgregar = "Nuevo Portfolio Simple";
-                        $texto_modulo = "obras";
-                        break;
-                    case "portfolio_completo":
-                        $textoAgregar = "Nuevo Portfolio Completo";
-                        $texto_modulo = "obras";
-                        break;
-                    case "muestra":
-                        $textoAgregar = "Nueva Muestra";
-                        $texto_modulo = "muestras";
                         break;
                     default :
-                        $textoAgregar = "Nuevo Item";
-                        $texto_modulo = "items";
+                        $menu_basic->modulo()->nombre = 'default';
                         break;
                 }
+                $textoAgregar = Lang::get('controllers.menu.mostrar_info.' . $menu_basic->modulo()->nombre . '.texto_agregar');
+                $texto_modulo = Lang::get('controllers.menu.mostrar_info.' . $menu_basic->modulo()->nombre . '.texto_modulo');
 
                 $this->array_view['html'] = $menu_basic->modulo()->nombre . ".listado";
                 $this->array_view['texto_agregar'] = $textoAgregar;

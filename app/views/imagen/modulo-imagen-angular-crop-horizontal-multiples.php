@@ -77,45 +77,27 @@
     </div><!-- cierra col-md-6 -->
 
     <div class="col-md-6">
-        <h3>Resultado</h3>
-        <div class="imgCargada marginBottom2">
+        <p>Vista previa de la imagen chica:</p>
+        <div class="divVistaImgCargada">
             <img ng-src="<% croppedImage %>" />
         </div>
-
         <input class="form-control marginBottom1" id="epigrafe" type="text" name="epigrafe_imagen_portada" placeholder="Ingrese una descripción de la foto (opcional)">
         <div class="nombre-peso marginBottom2">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th width="50%">Nombre</th>
-                        <th ng-show="uploader.isHTML5">Peso del archivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in uploader.queue">
-                        <td><strong><% item.file.name %></strong></td>
-                        <td ng-show="uploader.isHTML5" nowrap><% item.file.size / 1024 / 1024|number:2 %> MB</td>
-                    </tr>
-                </tbody>
-            </table>
-
             <div>
-                <div>
-                    Progreso:
-                    <div class="progress" style="">
-                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
-                    </div>
+                <p>Progreso:</p>
+                <div class="progress" style="">
+                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
                 </div>
-                <button type="button" class="btn btn-primary btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                    Guardar recorte
-                </button>
-                <button type="button" class="btn btn-default btn-s" ng-click="removerImagen()" ng-disabled="!uploader.queue.length">
-                    Eliminar
-                </button>
             </div>
-
+            <button type="button" class="btn btn-primary btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                    Guardar recorte
+            </button>
+            <button type="button" class="btn btn-default btn-s" ng-click="removerImagen()" ng-disabled="!uploader.queue.length">
+                Eliminar
+            </button>
         </div>
-    </div><!-- cierra col-md-6 -->
+    </div>
+    
     <div class="clearfix"></div>
 </div>
 <!-- cierra row -->

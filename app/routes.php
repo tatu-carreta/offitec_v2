@@ -52,7 +52,7 @@ Route::group(array('prefix' => Config::get('app.locale_prefix')), function() {
     Route::get('seccion/{id}', 'SeccionController@mostrarInfoSeccion');
 
 //Ruteo de Categoría
-    Route::get('jma-error', 'HomeController@error');
+    Route::get('tc-error', 'HomeController@error');
 
 //Ruteo de Producto
     Route::get('producto/{url}', 'ProductoController@mostrarInfoProducto');
@@ -429,5 +429,5 @@ App::missing(function($exception) {
 
     // shows an error page (app/views/error.blade.php)
     // returns a page not found error
-    return Redirect::to(Config::get('app.locale_prefix'), 'jma-error')->with('texto', 'Está intentado acceder a un lugar indebido.');
+    return Redirect::to(Config::get('app.locale_prefix'), 'tc-error')->with('texto', 'Está intentado acceder a un lugar indebido.');
 });

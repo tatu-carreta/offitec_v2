@@ -29,11 +29,11 @@ class PortfolioCompleto extends Portfolio {
 
             $messages = $validator->messages();
             if ($messages->has('titulo')) {
-                $respuesta['mensaje'] = 'El título de la obra contiene más de 50 caracteres o ya existe.';
+                $respuesta['mensaje'] = 'El título del proyecto contiene más de 50 caracteres o ya existe.';
             } elseif ($messages->has('imagen_portada_crop')) {
                 $respuesta['mensaje'] = 'Se olvidó de guardar la imagen recortada.';
             } else {
-                $respuesta['mensaje'] = 'Los datos necesarios para la obra son erróneos.';
+                $respuesta['mensaje'] = 'Los datos necesarios para el proyecto son erróneos.';
             }
 
             //Si está todo mal, carga lo que corresponde en el mensaje.
@@ -96,17 +96,17 @@ class PortfolioCompleto extends Portfolio {
 
             if ($ok) {
 
-        //Lo crea definitivamente
-        $portfolio_simple = Portfolio::agregar($input);
+                //Lo crea definitivamente
+                $portfolio_simple = Portfolio::agregar($input);
 
-        if (isset($input['cuerpo'])) {
+                if (isset($input['cuerpo'])) {
 
-            $cuerpo = $input['cuerpo'];
-        } else {
-            $cuerpo = NULL;
-        }
+                    $cuerpo = $input['cuerpo'];
+                } else {
+                    $cuerpo = NULL;
+                }
 
-        if (!$portfolio_simple['error']) {
+                if (!$portfolio_simple['error']) {
 
                     $portfolio_completo = static::create(['portfolio_simple_id' => $portfolio_simple['data']->id]);
 
@@ -126,13 +126,13 @@ class PortfolioCompleto extends Portfolio {
                         $portfolio_completo->idiomas()->attach($idioma->id, $datos_lang);
                     }
 
-            $respuesta['data'] = $portfolio_completo;
-            $respuesta['error'] = false;
-                    $respuesta['mensaje'] = "Obra creada.";
-        } else {
-            $respuesta['error'] = true;
-                    $respuesta['mensaje'] = "Hubo un error al agregar la obra. Compruebe los campos.";
-        }
+                    $respuesta['data'] = $portfolio_completo;
+                    $respuesta['error'] = false;
+                    $respuesta['mensaje'] = "Proyecto creado.";
+                } else {
+                    $respuesta['error'] = true;
+                    $respuesta['mensaje'] = "Hubo un error al agregar el proyecto. Compruebe los campos.";
+                }
             } else {
                 $respuesta['error'] = true;
                 $respuesta['mensaje'] = "Problema en la/s url de video cargada.";
@@ -145,7 +145,7 @@ class PortfolioCompleto extends Portfolio {
         $respuesta = array();
 
         $reglas = array(
-            'titulo' => array('required', 'max:50', 'unique:item_lang,titulo,' . $input['id']),
+            'titulo' => array('required', 'max:50', 'unique:item_lang,item_id,' . $input['id']),
         );
 
         if (isset($input['imagen_portada_crop'])) {
@@ -157,11 +157,11 @@ class PortfolioCompleto extends Portfolio {
         if ($validator->fails()) {
             $messages = $validator->messages();
             if ($messages->has('titulo')) {
-                $respuesta['mensaje'] = 'El título de la obra contiene más de 50 caracteres o ya existe.';
+                $respuesta['mensaje'] = 'El título del proyecto contiene más de 50 caracteres o ya existe.';
             } elseif ($messages->has('imagen_portada_crop')) {
                 $respuesta['mensaje'] = 'Se olvidó de guardar la imagen recortada.';
             } else {
-                $respuesta['mensaje'] = 'Los datos necesarios para la obra son erróneos.';
+                $respuesta['mensaje'] = 'Los datos necesarios para el proyecto son erróneos.';
             }
             $respuesta['error'] = true;
         } else {
@@ -222,14 +222,14 @@ class PortfolioCompleto extends Portfolio {
 
             if ($ok) {
 
-            $portfolio_completo = PortfolioCompleto::find($input['portfolio_completo_id']);
+                $portfolio_completo = PortfolioCompleto::find($input['portfolio_completo_id']);
 
-            if (isset($input['cuerpo'])) {
+                if (isset($input['cuerpo'])) {
 
-                $cuerpo = $input['cuerpo'];
-            } else {
-                $cuerpo = NULL;
-            }
+                    $cuerpo = $input['cuerpo'];
+                } else {
+                    $cuerpo = NULL;
+                }
 
 //                $portfolio_completo->cuerpo = $cuerpo;
 //
@@ -245,17 +245,17 @@ class PortfolioCompleto extends Portfolio {
 
                 $portfolio_completo_modificacion = DB::table('portfolio_completo_lang')->where('id', $portfolio_completo_lang->id)->update($datos);
 
-            $input['portfolio_id'] = $portfolio_completo->portfolio_simple_id;
+                $input['portfolio_id'] = $portfolio_completo->portfolio_simple_id;
 
-            $portfolio_simple = Portfolio::editar($input);
+                $portfolio_simple = Portfolio::editar($input);
 
-            $respuesta['mensaje'] = 'Portfolio modificado.';
-            $respuesta['error'] = false;
-            $respuesta['data'] = $portfolio_completo;
+                $respuesta['mensaje'] = 'Proyecto modificado.';
+                $respuesta['error'] = false;
+                $respuesta['data'] = $portfolio_completo;
             } else {
                 $respuesta['error'] = true;
                 $respuesta['mensaje'] = "Problema en la/s url de video cargada.";
-        }
+            }
         }
         return $respuesta;
     }
@@ -282,7 +282,7 @@ class PortfolioCompleto extends Portfolio {
 
             $item->save();
 
-            $respuesta['mensaje'] = 'Portfolio eliminado.';
+            $respuesta['mensaje'] = 'Proyecto eliminado.';
             $respuesta['error'] = false;
             $respuesta['data'] = $item;
         }
@@ -305,7 +305,7 @@ class PortfolioCompleto extends Portfolio {
 
             $baja_item_seccion = DB::table('item_seccion')->where($input)->update(array('estado' => 'B'));
 
-            $respuesta['mensaje'] = 'Portfolio eliminado.';
+            $respuesta['mensaje'] = 'Proyecto eliminado.';
             $respuesta['error'] = false;
             $respuesta['data'] = $baja_item_seccion;
         }
@@ -334,7 +334,7 @@ class PortfolioCompleto extends Portfolio {
 
             $item = Item::destacar($data);
 
-            $respuesta['mensaje'] = 'Portfolio destacado.';
+            $respuesta['mensaje'] = 'Proyecto destacado.';
             $respuesta['error'] = false;
             $respuesta['data'] = $portfolio_completo;
         }
@@ -348,7 +348,7 @@ class PortfolioCompleto extends Portfolio {
 
     public function idiomas() {
         return $this->belongsToMany('Idioma', 'portfolio_completo_lang', 'portfolio_completo_id', 'lang_id');
-}
+    }
 
     public function lang() {
         $lang = Idioma::where('codigo', App::getLocale())->where('estado', 'A')->first();

@@ -18,12 +18,14 @@ class Item extends Eloquent {
         $reglas = array(
             'titulo' => array('max:50', 'unique:item_lang'),
             'seccion_id' => array('integer'),
-            'imagen_portada_crop' => array('required'),
+                //'imagen_portada_crop' => array('required'),
         );
-
+        /*
         if (isset($input['titulo']) && ($input['titulo'] != "")) {
             $reglas['titulo'] = array('max:9', 'unique:item');
         }
+         * 
+         */
 
         if (isset($input['es_texto']) && ($input['es_texto'])) {
             unset($reglas['imagen_portada_crop']);
@@ -187,7 +189,7 @@ class Item extends Eloquent {
                                 $epigrafe_imagen_portada = NULL;
                             }
 
-                            $imagen_crop = Imagen::agregarImagenCropped($imagen, $ampliada, $epigrafe_imagen_portada);
+                            $imagen_crop = Imagen::agregarImagenCroppedArray($imagen, $ampliada, $epigrafe_imagen_portada);
 
                             if (!$imagen_crop['error']) {
                                 if ($i == 0) {
@@ -220,6 +222,80 @@ class Item extends Eloquent {
                     $imagen_crop = Imagen::agregarImagenCropped($input['imagen_portada_crop'], $ampliada, $epigrafe_imagen_portada);
 
                     $item->imagenes()->attach($imagen_crop['data']->id, array("destacado" => "A"));
+                }
+            }
+
+            if (isset($input['video']) && ($input['video'] != "")) {
+                if (is_array($input['video'])) {
+                    foreach ($input['video'] as $key => $video) {
+                        if ($video != "") {
+
+                            $dataUrl = parse_url($video);
+
+                            if (in_array($dataUrl['host'], ['vimeo.com', 'www.vimeo.com'])) {
+                                $hosts = array('vimeo.com', 'www.vimeo.com');
+
+                                if (Video::validarUrlVimeo($video, $hosts)['estado']) {
+                                    $data_video = array(
+                                        'ID_video' => substr($dataUrl['path'], 1),
+                                            //'titulo' => $input['titulo_archivo'][$key]
+                                    );
+                                    $video_creado = Video::agregarVimeo($data_video);
+
+                                    $item->videos()->attach($video_creado['data']->id);
+                                }
+                            } else {
+                                $hosts = array('youtube.com', 'www.youtube.com');
+                                $paths = array('/watch');
+
+                                if (Video::validarUrl($video, $hosts, $paths)['estado']) {
+                                    if ($ID_video = Youtube::parseVIdFromURL($video)) {
+
+                                        $data_video = array(
+                                            'ID_video' => $ID_video,
+                                                //'titulo' => $input['titulo_archivo'][$key]
+                                        );
+                                        $video_creado = Video::agregarYoutube($data_video);
+
+                                        $item->videos()->attach($video_creado['data']->id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+
+                    $dataUrl = parse_url(Input::get('video'));
+
+                    if (in_array($dataUrl['host'], ['vimeo.com', 'www.vimeo.com'])) {
+                        $hosts = array('vimeo.com', 'www.vimeo.com');
+
+                        if (Video::validarUrlVimeo(Input::get('video'), $hosts)['estado']) {
+                            $data_video = array(
+                                'ID_video' => substr($dataUrl['path'], 1),
+                                    //'titulo' => $input['titulo_archivo'][$key]
+                            );
+                            $video_creado = Video::agregarVimeo($data_video);
+
+                            $item->videos()->attach($video_creado['data']->id);
+                        }
+                    } else {
+                        $hosts = array('youtube.com', 'www.youtube.com');
+                        $paths = array('/watch');
+
+                        if (Video::validarUrl(Input::get('video'), $hosts, $paths)['estado']) {
+                            if ($ID_video = Youtube::parseVIdFromURL(Input::get('video'))) {
+
+                                $data_video = array(
+                                    'ID_video' => $ID_video,
+                                        //'titulo' => $input['titulo_archivo'][$key]
+                                );
+                                $video_creado = Video::agregarYoutube($data_video);
+
+                                $item->videos()->attach($video_creado['data']->id);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -540,6 +616,79 @@ class Item extends Eloquent {
                 }
             }
 
+            if (isset($input['video']) && ($input['video'] != "")) {
+                if (is_array($input['video'])) {
+                    foreach ($input['video'] as $key => $video) {
+                        if ($video != "") {
+
+                            $dataUrl = parse_url($video);
+
+                            if (in_array($dataUrl['host'], ['vimeo.com', 'www.vimeo.com'])) {
+                                $hosts = array('vimeo.com', 'www.vimeo.com');
+
+                                if (Video::validarUrlVimeo($video, $hosts)['estado']) {
+                                    $data_video = array(
+                                        'ID_video' => substr($dataUrl['path'], 1),
+                                            //'titulo' => $input['titulo_archivo'][$key]
+                                    );
+                                    $video_creado = Video::agregarVimeo($data_video);
+
+                                    $item->videos()->attach($video_creado['data']->id);
+                                }
+                            } else {
+                                $hosts = array('youtube.com', 'www.youtube.com');
+                                $paths = array('/watch');
+
+                                if (Video::validarUrl($video, $hosts, $paths)['estado']) {
+                                    if ($ID_video = Youtube::parseVIdFromURL($video)) {
+
+                                        $data_video = array(
+                                            'ID_video' => $ID_video,
+                                                //'titulo' => $input['titulo_archivo'][$key]
+                                        );
+                                        $video_creado = Video::agregarYoutube($data_video);
+
+                                        $item->videos()->attach($video_creado['data']->id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    $dataUrl = parse_url(Input::get('video'));
+
+                    if (in_array($dataUrl['host'], ['vimeo.com', 'www.vimeo.com'])) {
+                        $hosts = array('vimeo.com', 'www.vimeo.com');
+
+                        if (Video::validarUrlVimeo(Input::get('video'), $hosts)['estado']) {
+                            $data_video = array(
+                                'ID_video' => substr($dataUrl['path'], 1),
+                                    //'titulo' => $input['titulo_archivo'][$key]
+                            );
+                            $video_creado = Video::agregarVimeo($data_video);
+
+                            $item->videos()->attach($video_creado['data']->id);
+                        }
+                    } else {
+                        $hosts = array('youtube.com', 'www.youtube.com');
+                        $paths = array('/watch');
+
+                        if (Video::validarUrl(Input::get('video'), $hosts, $paths)['estado']) {
+                            if ($ID_video = Youtube::parseVIdFromURL(Input::get('video'))) {
+
+                                $data_video = array(
+                                    'ID_video' => $ID_video,
+                                        //'titulo' => $input['titulo_archivo'][$key]
+                                );
+                                $video_creado = Video::agregarYoutube($data_video);
+
+                                $item->videos()->attach($video_creado['data']->id);
+                            }
+                        }
+                    }
+                }
+            }
+
             $secciones = array();
 
             if (isset($input['secciones']) && (is_array($input['secciones'])) && (count($input['secciones']) > 0)) {
@@ -757,7 +906,9 @@ class Item extends Eloquent {
             }
 
 
-            $respuesta['mensaje'] = 'Producto eliminado';
+            $respuesta['mensaje'] = $item->tipo()['tipo_singular'] . ' eliminado.';
+
+            //$respuesta['mensaje'] = 'Producto eliminado';
             $respuesta['error'] = false;
             $respuesta['data'] = $item;
         }
@@ -783,7 +934,9 @@ class Item extends Eloquent {
             $baja_item_seccion = DB::table('item_seccion')->where($input)->update(array(
                 'estado' => 'B'));
 
-            $respuesta['mensaje'] = 'Producto eliminado.';
+            $it = Item::find($input['item_id']);
+
+            $respuesta['mensaje'] = $it->tipo()['tipo_singular'] . ' eliminado.';
             $respuesta['error'] = false;
             $respuesta['data'] = $baja_item_seccion;
         }
@@ -821,7 +974,9 @@ class Item extends Eloquent {
             $item = DB::table('item_seccion')->where(
                             $input)->update(array('orden' => $orden));
 
-            $respuesta['mensaje'] = 'Productos ordenados.';
+            $it = Item::find($item_id);
+
+            $respuesta['mensaje'] = 'Los ' . $it->tipo()['tipo_plural'] . ' han sido ordenados.';
             $respuesta['error'] = false;
             $respuesta['data'] = $item;
         }
@@ -984,7 +1139,7 @@ class Item extends Eloquent {
     }
 
     public function imagenes() {
-        return $this->belongsToMany('Imagen', 'item_imagen', 'item_id', 'imagen_id')->where('imagen.estado', 'A')->whereNull('item_imagen.destacado')->orWhere('item_imagen.destacado', '<>', 'A');
+        return $this->belongsToMany('Imagen', 'item_imagen', 'item_id', 'imagen_id')->where('imagen.estado', 'A')->whereNull('item_imagen.destacado')->orWhere('item_imagen.destacado', '<>', 'A')->orderBy('item_imagen.orden')->orderBy('imagen.id', 'DESC');
     }
 
     public function imagenes_producto() {
@@ -997,6 +1152,10 @@ class Item extends Eloquent {
 
     public function archivos() {
         return $this->belongsToMany('Archivo', 'item_archivo', 'item_id', 'archivo_id')->where('archivo.estado', 'A')->whereNull('item_archivo.destacado')->orWhere('item_archivo.destacado', '<>', 'A');
+    }
+
+    public function videos() {
+        return $this->belongsToMany('Video', 'item_video', 'item_id', 'video_id')->where('video.estado', 'A')->whereNull('item_video.destacado')->orWhere('item_video.destacado', '<>', 'A');
     }
 
     public function obtener_destacada() {
@@ -1056,6 +1215,35 @@ class Item extends Eloquent {
 
     public function muestra() {
         return Muestra::where('item_id', $this->id)->first();
+    }
+
+    public function tipo() {
+        $result = array(
+            'tipo_singular' => 'item',
+            'tipo_plural' => 'items'
+        );
+
+        if (!is_null($this->texto())) {
+            $result['tipo_singular'] = 'texto';
+            $result['tipo_plural'] = 'textos';
+        } elseif (!is_null($this->html())) {
+            $result['tipo_singular'] = 'html';
+            $result['tipo_plural'] = 'htmls';
+        } elseif (!is_null($this->galeria())) {
+            $result['tipo_singular'] = 'galería';
+            $result['tipo_plural'] = 'galerias';
+        } elseif (!is_null($this->producto())) {
+            $result['tipo_singular'] = 'producto';
+            $result['tipo_plural'] = 'productos';
+        } elseif (!is_null($this->portfolio())) {
+            $result['tipo_singular'] = 'obra';
+            $result['tipo_plural'] = 'obras';
+        } elseif (!is_null($this->muestra())) {
+            $result['tipo_singular'] = 'muestra';
+            $result['tipo_plural'] = 'muestras';
+        }
+
+        return $result;
     }
 
     public function idiomas() {

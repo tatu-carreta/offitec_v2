@@ -127,7 +127,7 @@ class PortfolioCompletoController extends BaseController {
          * 
          */
         if ($respuesta['error'] == true) {
-            return Redirect::to($this->array_view['prefijo'].'/admin/' . $this->folder_name . '/editar/' . Input::get('portfolio_completo_id'))->with('mensaje', $respuesta['mensaje'])->with('error', true);
+            return Redirect::to($this->array_view['prefijo'].'/admin/' . $this->folder_name . '/editar/' . Input::get('id').'/'.Input::get('continue').'/'.Input::get('seccion_id'))->with('mensaje', $respuesta['mensaje'])->with('error', true);
             //return Redirect::to('admin/producto')->withErrors($respuesta['mensaje'])->withInput();
         } else {
             if (Input::get('continue') == "home") {

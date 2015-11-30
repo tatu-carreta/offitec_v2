@@ -53,4 +53,22 @@ class ImagenController extends BaseController {
         die();
     }
 
+    public function ordenar() {
+
+        foreach (Input::get('orden') as $key => $imagen_id) {
+            if ($key == 0) {
+                $destacado = 'A';
+            } else {
+                $destacado = NULL;
+}
+            $respuesta = Imagen::ordenarImagenItem($imagen_id, $key, Input::get('item_id'), $destacado);
+        }
+
+        $item = Item::find(Input::get('item_id'));
+
+        $menu = $item->seccionItem()->menuSeccion()->modulo()->nombre;
+
+        return Redirect::to('/' . $menu . '/' . $item->lang()->url)->with('mensaje', $respuesta['mensaje'])->with('ok', true);
+    }
+
 }

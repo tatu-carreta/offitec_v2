@@ -23,4 +23,36 @@ return array(
         'presupuesto_enviado' => 'The estimate was sent.',
         'presupuesto_no_enviado' => 'The email containing your estimate could not be properly sent. Try again in a few minutes.',
     ),
+    'menu' => array(
+        'mostrar_info' => array(
+            'producto' => array(
+                'texto_agregar' => 'Nuevo Producto',
+                'texto_modulo' => 'products'
+            ),
+            'noticia' => array(
+                'texto_agregar' => 'Nueva Noticia',
+                'texto_modulo' => 'news'
+            ),
+            'evento' => array(
+                'texto_agregar' => 'Nuevo Evento',
+                'texto_modulo' => 'events'
+            ),
+            'portfolio_simple' => array(
+                'texto_agregar' => 'Nuevo Portfolio Simple',
+                'texto_modulo' => 'works'
+            ),
+            'portfolio_completo' => array(
+                'texto_agregar' => 'Nuevo Proyecto',
+                'texto_modulo' => 'projects'
+            ),
+            'muestra' => array(
+                'texto_agregar' => 'Nueva Muestra',
+                'texto_modulo' => 'exhibitions'
+            ),
+            'default' => array(
+                'texto_agregar' => 'Nuevo Item',
+                'texto_modulo' => 'items'
+            ),
+        ),
+    ),
 );
