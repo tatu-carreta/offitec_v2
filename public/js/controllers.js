@@ -239,11 +239,11 @@ angular
                 
                 $scope.$watch('url_public', cambiaUrlUploader, true);
                 function cambiaUrlUploader() {
-                    $scope.uploader.url = $scope.url_public + '/admin/imagen/crop/upload';
+                    $scope.uploader.url = $scope.url_public + '/admin/imagen/crop/upload/multiple';
                     //console.log($scope.uploader.url);
                 }
                 var uploader = $scope.uploader = new FileUploader({
-                    url: 'admin/imagen/crop/upload'
+                    url: 'admin/imagen/crop/upload/multiple'
                 });
 
                 // FILTERS

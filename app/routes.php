@@ -150,6 +150,8 @@ Route::group(array('prefix' => Config::get('app.locale_prefix')), function() {
          */
 
         Route::post('admin/imagen/crop/upload', 'ImagenController@uploadImagenCrop');
+        
+        Route::post('admin/imagen/crop/upload/multiple', 'ImagenController@uploadImagenCropMultiple');
 
         Route::post('admin/imagen/slide/upload', 'ImagenController@uploadGaleriaSlideHome');
 

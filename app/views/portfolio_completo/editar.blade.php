@@ -16,6 +16,9 @@
         <div ng-controller="ImagenMultiple" nv-file-drop="" uploader="uploader" filters="customFilter, sizeLimit">
         {{ Form::open(array('url' => $prefijo.'/admin/portfolio_completo/editar', 'files' => true, 'role' => 'form')) }}
             <h2 class="marginBottom2"><span>Editar proyecto</span></h2>
+            <div class="marginBottom2">
+                <a class="volveraSeccion" href="@if($seccion_next != 'null'){{URL::to('/'.Seccion::find($seccion_next) -> menuSeccion()->lang() -> url)}}@else{{URL::to('/')}}@endif"><i class="fa fa-caret-left"></i>Volver a @if($seccion_next != 'null'){{ Seccion::find($seccion_next) -> menuSeccion()->lang() -> nombre }}@else Home @endif</a>
+            </div>
             
             <div class="row">
                 <div class="col-md-6 divDatos divCargaTitulo">
