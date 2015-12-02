@@ -155,6 +155,23 @@ h4{margin-bottom: 20px;font-size: 20px;}
 .prePresentacion{text-align: center;color: #A25A77;font-size: 1.6em;line-height: 1.3em;width: 80%;margin: 0 auto 0.5em;letter-spacing: 0.2px;}
 .parrafoServicios{margin-bottom: 1em;}
 /* ----------------------------- M E D I A  Q U E R Y ------------------------------------- */
+/*@media screen and (max-width: 1080px) {
+    .navbar-header {float: right;}
+    .navbar-collapse.collapse {display: none}
+}*/
+@media screen and (max-width: 1080px) {
+    header .col-md-12 {padding: 0}
+    .logo {left:20px;}
+    .fondo-negro .col-md-12 {padding: 0}
+    .divMenu {float: left; width: 100%}
+    #menuPrincipal {height: auto !important;} 
+    #menuPrincipal a {height: 40px; line-height: 40px; font-size: 1.250em;}
+    .navbar-collapse {border: 0 !important; padding: 0}
+    .navbar-nav {margin:0;}
+    .btnCarrito i {display: inline-block; font-size: 1.6em; padding: 0 0.4em}
+    .btnCarrito span {display: none}
+    .info {width: 100%; border-bottom: 0; margin-bottom: 1em}
+}
 
 @media screen and (max-width: 1000px) {
     #menuPrincipal a {padding: 0 1.250em !important }
@@ -181,19 +198,6 @@ h4{margin-bottom: 20px;font-size: 20px;}
 .infoizq{margin-right: 0;}
 }
 
-@media screen and (max-width: 768px) {
-    header .col-md-12 {padding: 0}
-    .logo {left:20px;}
-    .fondo-negro .col-md-12 {padding: 0}
-    .divMenu {float: left; width: 100%}
-    #menuPrincipal {height: auto !important;} 
-    #menuPrincipal a {height: 40px; line-height: 40px; font-size: 1.250em;}
-    .navbar-collapse {border: 0 !important; padding: 0}
-    .navbar-nav {margin:0;}
-    .btnCarrito i {display: inline-block; font-size: 1.6em; padding: 0 0.4em}
-    .btnCarrito span {display: none}
-    .info {width: 100%; border-bottom: 0; margin-bottom: 1em}
-}
 
 @media screen and (max-width: 743px){
     .col-tabla {width: 100%; height: auto;}
@@ -214,10 +218,13 @@ h4{margin-bottom: 20px;font-size: 20px;}
 @media screen and (max-width: 495px) {
     .col-izqservicios{width: 100%;}
     .col-xs-6{width:100% !important;}
-
+    .idiomas {padding: 18px 20px;}
+    .idiomas li {display: block}
 }
 
 @media screen and (max-width: 440px){
     .col-xs-6 {width: 100%;}
 }
-
+@media screen and (max-width: 400px){
+    .idiomas {display: none;}
+}

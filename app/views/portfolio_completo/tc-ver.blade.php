@@ -26,13 +26,34 @@
         @endif
         </div>
     </div>
-    <div class="clear"></div>
-    <div class="row marginBottom2 ">
-        
+    <div class="clearfix"></div>
+
+    <div class="row ">
+        <div class="col-md-6 col-sm-6 col-xs-12 divCuerpoTxt">
+            <div class="fondoDestacado">
+                <h4>Descripción del proyecto:</h4>
+                {{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}
+            </div>
+        </div>
+
+        @if(count($item->videos) > 0)
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @foreach($item->videos as $video)
+                    <iframe class="video-tc videoDetalle" src="@if($video->tipo == 'youtube')https://www.youtube.com/embed/@else//player.vimeo.com/video/@endif{{ $video->url }}"></iframe>
+                @endforeach
+            </div>
+        @endif
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">  
+        <div class="col-md-12">
+            <h4>Galería de imágenes</h4>
+        </div>
         @if(Auth::check())
             {{ Form::open(array('url' => 'admin/imagen/ordenar-por-item', 'id' => 'formularioOrdenImagenes')) }}
         @endif
-        <div class="@if(Auth::check()) sortable @endif">
+        <div class="@if(Auth::check()) sortable @endif">  
         <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
             <div class="thumbnail">
                         @if(count($item->imagen_destacada()) > 0)
@@ -83,27 +104,6 @@
             {{Form::close()}}
         @endif
     </div>
-            <div class="clear"></div>
-    <div class="row ">
-        <div class="col-md-12 divCuerpoTxt">
-            {{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}
-        </div>
-    </div>
-        
-    @if(count($item->videos) > 0)
-        {{--<div class="row ">
-            <div class="col-md-12">
-                <h3>Videos</h3>
-            </div>
-        </div>
-        --}}
-        <div class="row">
-            @foreach($item->videos as $video)
-                <div class="col-md-4">
-                    <iframe class="video-tc" src="@if($video->tipo == 'youtube')https://www.youtube.com/embed/@else//player.vimeo.com/video/@endif{{ $video->url }}"></iframe>
-                </div>
-            @endforeach
-        </div>
-    @endif
+    <div class="clear"></div>
 </section>
 @stop
