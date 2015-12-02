@@ -72,7 +72,7 @@
                 <img src="{{ URL::to('images/sinImg.gif') }}" alt="{{$item->lang()->titulo}}">
                     @if(!Auth::check())
                         </a>
-                        @endif
+                        @endif 
                 @endif
                 @if(Auth::check())
                     <input type="hidden" name="orden[]" value="{{$item->imagen_destacada()->id}}">

@@ -178,6 +178,16 @@ img-crop canvas {
   /* mobile webkit */
 }
 
+.cropArea{
+    border: 1px dashed #999;
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    width: 100%;
+    height: 390px;
+}
+
 /* Ocultamos el input file */
 .oculto {z-index: 999;line-height: 0;font-size: 30px; position: absolute;opacity: 0;filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
 margin: 0;padding:0;left:0;top: 0;width: 130px;}
@@ -185,6 +195,27 @@ margin: 0;padding:0;left:0;top: 0;width: 130px;}
 /* Al label lo convertimos en "boton" (en apariencia) 
 .cargar {text-align: center;color: #fff;display: block;border-radius: 3px;font-size: 18px;float: left; position: relative;}*/
 
+/* Efecto Hover */
+.conEfectoHover {position: relative;}
+.efectoHover{position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    color: rgba(255,255,255,0);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;}
+.efectoHover p {position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;}
 
 /* Botones */
 .btn, .btnGris, .btnCalado, .btnSec{cursor:pointer; display: inline-block;}

@@ -68,6 +68,11 @@ h1, h2, h3 {font-weight: 300}
 #divLoading img {position: absolute; top: 50%; left:50%; margin-top: -24px; margin-left: -24px}
 #divLoading p {position: absolute; top:40%; width: 100%; font-size: 1.6em; }
 
+/* NOSOTROS */
+.info-nosotros{margin-top: 20px;}
+.txtNosotros{display: block; margin-left:180px; margin-bottom: 4em}
+.imgNosotros{ float: left; width: 150px; }
+
 /* SERVICIOS */ 
 .redesContacto{width: 100%}
 .redesContacto a{background-image: url(../images/sprites-redes.png); width: 24px; height: 24px; display: inline-block;}
@@ -214,6 +219,11 @@ h4{margin-bottom: 20px;font-size: 20px;}
     .tarjetas {text-align: center}
     .data-fiscal {float:none;}
     .col-izqcontacto{width: 100%}
+}
+@media only screen and (max-width: 550px) {
+    .info-nosotros{margin-top: 2em;}
+    .txtNosotros{width: 100%; margin: 2em 0 4em !important; text-align: center;}
+    .imgNosotros{width: 100%;  float: none; text-align: center;} 
 }
 @media screen and (max-width: 495px) {
     .col-izqservicios{width: 100%;}

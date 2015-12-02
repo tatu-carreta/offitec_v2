@@ -32,6 +32,8 @@
             <div class="row marginBottom2">
                 <!-- Abre columna de imágenes -->
                 <div class="col-md-12 cargaImg">
+                    <h3>Imágenes del proyecto</h3>
+                    
                     <div class="fondoDestacado">
                         <h4>Recorte de imágenes</h4>
                         <input type="hidden" ng-model="url_public" ng-init="url_public = '{{URL::to('/')}}'">

@@ -1,27 +1,3 @@
-<style>
-    .my-drop-zone { border: dotted 3px lightgray; }
-    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
-    .another-file-over-class { border: dotted 3px green; }
-</style>
-<style>
-    .cropArea {
-        background: #E4E4E4;
-        margin: auto;
-        overflow: hidden;
-    }
-    .cropArea.big {
-        width:800px;
-        height:600px;
-    }
-    .cropArea.medium {
-        width:500px;
-        height:350px;
-    }
-    .cropArea.small {
-        width:100%;
-        height:300px;
-    }
-</style>
 <script>
     $(document).ready(function () {
 
