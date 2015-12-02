@@ -8,7 +8,7 @@ return array(
       |
      */
     'head' => array(
-        'title' => 'OFFITEC - Office furniture. Deco home. In La Plata y Lomas de Zamora.',
+        'title' => 'OFFITEC - Office furniture. Deco home. In La Plata and Lomas de Zamora.',
         'description' => 'DESIGN / OFFICE / HOME. Integral equipment. Furniture, chairs, curtains and accessories. Professional advice. Custom furniture.',
         'keywords' => 'Offitec, office space, furniture, chairs, armchairs, drapes, accessories, advising, custom furniture, La Plata.',
     ),
