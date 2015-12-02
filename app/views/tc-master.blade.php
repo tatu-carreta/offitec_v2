@@ -1,5 +1,5 @@
 <!Doctype html>
-<html lang="es">
+<html lang="{{ App::getLocale() }}">
     <head>
         @section('head')
         <meta charset="UTF-8">
@@ -116,7 +116,7 @@
                                 <!-- B T N   I D I O M A S -->
                                 <ul class="idiomas">
                                     @foreach(Lang::get('locales.option') as $mKey => $mLanguage)
-                                        <li>{{ HTML::linkAction('BaseController@setLocale', $mLanguage, array($mKey, $type, $ang)) }}</li>
+                                    <li>{{ HTML::linkAction('BaseController@setLocale', Str::upper($mKey), array($mKey, $type, $ang)) }}<span>{{ $mLanguage }}</span></li>
                                     @endforeach
                                 </ul>
 

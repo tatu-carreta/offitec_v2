@@ -54,51 +54,56 @@
             {{ Form::open(array('url' => 'admin/imagen/ordenar-por-item', 'id' => 'formularioOrdenImagenes')) }}
         @endif
         <div class="@if(Auth::check()) sortable @endif">  
-        <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
-            <div class="thumbnail">
-                        @if(count($item->imagen_destacada()) > 0)
-                    @if(!Auth::check())
-                        <a class="fancybox" href="{{URL::to($item->imagen_destacada()->ampliada()->carpeta.$item->imagen_destacada()->ampliada()->nombre)}}" title="{{ $item->imagen_destacada()->ampliada()->lang()->epigrafe }}" rel='group'>
-                    @endif
-                        <img src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}" alt="{{$item->lang()->titulo}}">
-                    @if(!Auth::check())
-                        </a>
-                    @endif
-                {{-- <p>{{$item->imagen_destacada()->epigrafe}}</p> --}}
-                        @else
-                    @if(!Auth::check())
-                        <a class="fancybox" href="{{ URL::to('images/sinImg.gif') }}" title="{{$item->lang()->titulo}}" rel='group'>
-                    @endif
-                <img src="{{ URL::to('images/sinImg.gif') }}" alt="{{$item->lang()->titulo}}">
-                    @if(!Auth::check())
-                        </a>
-                        @endif 
-                @endif
-                @if(Auth::check())
-                    <input type="hidden" name="orden[]" value="{{$item->imagen_destacada()->id}}">
-                @endif   
-            </div>
-        </div>
-        
-        @foreach($item->imagenes as $img)
-            <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
-                <div class="thumbnail ">
-                    @if(!Auth::check())
-                        <a class="fancybox" href="{{URL::to($img->ampliada()->carpeta.$img->ampliada()->nombre)}}" title="{{ $img->ampliada()->lang()->epigrafe }}" rel='group'>
-                    @endif
-                            <img src="{{ URL::to($img->carpeta.$img->nombre) }}" alt="{{$item->lang()->titulo}}">
-                    @if(!Auth::check())    
-                        </a>
-                    @endif
-                {{-- <p>{{$img->epigrafe}}</p> --}}
-                    @if(Auth::check())
-                        <input type="hidden" name="orden[]" value="{{$img->id}}">
-                    @endif    
-                </div>
-            </div>
             
-        @endforeach
+            
+                <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
+                    <div class="thumbnail">
+                        @if(count($item->imagen_destacada()) > 0)
+                            @if(!Auth::check())
+                                <a class="fancybox" href="{{URL::to($item->imagen_destacada()->ampliada()->carpeta.$item->imagen_destacada()->ampliada()->nombre)}}" title="{{ $item->imagen_destacada()->ampliada()->lang()->epigrafe }}" rel='group'>
+                            @endif
+                                    <img src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}" alt="{{$item->lang()->titulo}}">
+                            @if(!Auth::check())
+                                </a>
+                            @endif
+                            {{-- <p>{{$item->imagen_destacada()->epigrafe}}</p> --}}
+                        @else
+
+                            @if(!Auth::check())
+                                <a class="fancybox" href="{{ URL::to('images/sinImg.gif') }}" title="{{$item->lang()->titulo}}" rel='group'>
+                            @endif
+                                    <img src="{{ URL::to('images/sinImg.gif') }}" alt="{{$item->lang()->titulo}}">
+                            @if(!Auth::check())
+                                </a>
+                            @endif
+                        @endif
+                        
+                        @if(Auth::check())
+                            <input type="hidden" name="orden[]" value="{{$item->imagen_destacada()->id}}">
+                        @endif   
+                    </div>
                 </div>
+            
+            
+            @foreach($item->imagenes as $img)
+                <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
+                    <div class="thumbnail ">
+                        @if(!Auth::check())
+                            <a class="fancybox" href="{{URL::to($img->ampliada()->carpeta.$img->ampliada()->nombre)}}" title="{{ $img->ampliada()->lang()->epigrafe }}" rel='group'>
+                        @endif
+                                <img src="{{ URL::to($img->carpeta.$img->nombre) }}" alt="{{$item->lang()->titulo}}">
+                        @if(!Auth::check())    
+                            </a>
+                        @endif
+                        {{-- <p>{{$img->epigrafe}}</p> --}}
+                        @if(Auth::check())
+                            <input type="hidden" name="orden[]" value="{{$img->id}}">
+                        @endif    
+                    </div>
+                </div>
+
+            @endforeach
+        </div>
         @if(Auth::check())
             {{Form::hidden('item_id', $item->id)}}
             {{Form::close()}}

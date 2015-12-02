@@ -145,7 +145,7 @@ class PortfolioCompleto extends Portfolio {
         $respuesta = array();
 
         $reglas = array(
-            'titulo' => array('required', 'max:50', 'unique:item_lang,item_id,' . $input['id']),
+            'titulo' => array('required', 'max:50', 'unique:item_lang,titulo,' . $input['id'].',item_id'),
         );
 
         if (isset($input['imagen_portada_crop'])) {
