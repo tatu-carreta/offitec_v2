@@ -50,7 +50,7 @@
 
     <div class="row">  
         <div class="col-md-12">
-            <h4>{{ Lang::get('html.proyects.galeria') }}</h4>
+            <h4>{{ Lang::get('html.proyectos.galeria') }}</h4>
         </div>
         @if(Auth::check())
             {{ Form::open(array('url' => 'admin/imagen/ordenar-por-item', 'id' => 'formularioOrdenImagenes')) }}

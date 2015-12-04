@@ -48,6 +48,14 @@ class BaseController extends Controller {
             $menu = Menu::join('menu_lang', 'menu_lang.menu_id', '=', 'menu.id')->where('menu_lang.lang_id', $lang->id)->where('menu_lang.estado', 'A')->where('menu_lang.menu_id', $menu_id)->first();
 
             return Redirect::to($this->array_view['prefijo'] . '/' . $menu->url);
+        } elseif ((Request::segment(3) == 'PC') && (is_numeric(Request::segment(4)))) {
+            $item_id = Request::segment(4);
+
+            $lang = Idioma::where('codigo', App::getLocale())->where('estado', 'A')->first();
+
+            $item = $item_lang = Item::join('item_lang', 'item_lang.item_id', '=', 'item.id')->where('item_lang.lang_id', $lang->id)->where('item_lang.item_id', $item_id)->first();
+
+            return Redirect::to($this->array_view['prefijo'] . '/portfolio_completo/' . $item->url);
         } else {
             return Redirect::back();
         }

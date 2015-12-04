@@ -36,6 +36,9 @@ class PortfolioCompletoController extends BaseController {
         $item = Item::find($item_lang->item_id);
 
         $this->array_view['item'] = $item;
+        
+        $this->array_view['type'] = 'PC';
+        $this->array_view['ang'] = $item->id;
 
         return View::make($this->folder_name . '.' . $this->project_name . '-ver', $this->array_view);
     }
