@@ -1,4 +1,4 @@
-<div class="row sortable">
+<div class="row @if(Auth::check()) sortable @endif">
     @foreach($seccion -> items as $i)
 
         <div class="col-md-3">
@@ -31,6 +31,8 @@
 
             @if(!Auth::check())
                 <a class="conEfectoHover" href="{{URL::to('portfolio_completo/'.$i->lang()->url)}}">
+            @else
+                <div class="conEfectoHover">
             @endif
                 <div class="efectoHover">
                     <p>{{ $i->lang()->titulo }}</p>
@@ -38,6 +40,8 @@
                 <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
             @if(!Auth::check())
                 </a>
+            @else
+                </div>
             @endif
 
             @if(Auth::check())

@@ -74,4 +74,8 @@ return array(
         'imagen4' => 'funcionality',
         'imagen5' => 'confort',
     ),
+    'proyectos' => array(
+        'descripcion' => 'Project description:',
+        'galeria' => 'Image gallery',
+    ),
 );

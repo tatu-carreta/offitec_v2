@@ -29,12 +29,14 @@
     <div class="clearfix"></div>
 
     <div class="row ">
-        <div class="col-md-6 col-sm-6 col-xs-12 divCuerpoTxt">
-            <div class="fondoDestacado">
-                <h4>Descripción del proyecto:</h4>
-                {{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}
+        @if(!is_null($item->portfolio()->portfolio_completo()->lang()->cuerpo) && ($item->portfolio()->portfolio_completo()->lang()->cuerpo != ''))
+            <div class="col-md-6 col-sm-6 col-xs-12 divCuerpoTxt">
+                <div class="fondoDestacado">
+                    <h4>{{ Lang::get('html.proyectos.descripcion') }}</h4>
+                    {{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}
+                </div>
             </div>
-        </div>
+        @endif
 
         @if(count($item->videos) > 0)
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -48,7 +50,7 @@
 
     <div class="row">  
         <div class="col-md-12">
-            <h4>Galería de imágenes</h4>
+            <h4>{{ Lang::get('html.proyects.galeria') }}</h4>
         </div>
         @if(Auth::check())
             {{ Form::open(array('url' => 'admin/imagen/ordenar-por-item', 'id' => 'formularioOrdenImagenes')) }}
@@ -60,7 +62,7 @@
                     <div class="thumbnail">
                         @if(count($item->imagen_destacada()) > 0)
                             @if(!Auth::check())
-                                <a class="fancybox" href="{{URL::to($item->imagen_destacada()->ampliada()->carpeta.$item->imagen_destacada()->ampliada()->nombre)}}" title="{{ $item->imagen_destacada()->ampliada()->lang()->epigrafe }}" rel='group'>
+                                <a class="fancybox" href="{{URL::to($item->imagen_destacada()->ampliada()->carpeta.$item->imagen_destacada()->ampliada()->nombre)}}" title="{{ $item->lang()->titulo }} @if(!is_null($item->imagen_destacada()->ampliada()->lang()->epigrafe) && ($item->imagen_destacada()->ampliada()->lang()->epigrafe != '')){{ $item->imagen_destacada()->ampliada()->lang()->epigrafe }}@else{{$item->lang()->titulo}}@endif" rel='group'>
                             @endif
                                     <img src="{{ URL::to($item->imagen_destacada()->carpeta.$item->imagen_destacada()->nombre) }}" alt="{{$item->lang()->titulo}}">
                             @if(!Auth::check())
@@ -89,7 +91,7 @@
                 <div class="col-md-3 col-sm-4 col-xs-4 @if(Auth::check()) cursor-move @endif">
                     <div class="thumbnail ">
                         @if(!Auth::check())
-                            <a class="fancybox" href="{{URL::to($img->ampliada()->carpeta.$img->ampliada()->nombre)}}" title="{{ $img->ampliada()->lang()->epigrafe }}" rel='group'>
+                            <a class="fancybox" href="{{URL::to($img->ampliada()->carpeta.$img->ampliada()->nombre)}}" title="{{ $item->lang()->titulo }} @if(!is_null($img->ampliada()->lang()->epigrafe) && ($img->ampliada()->lang()->epigrafe != '')){{ $img->ampliada()->lang()->epigrafe }}@else{{$item->lang()->titulo}}@endif" rel='group'>
                         @endif
                                 <img src="{{ URL::to($img->carpeta.$img->nombre) }}" alt="{{$item->lang()->titulo}}">
                         @if(!Auth::check())    
