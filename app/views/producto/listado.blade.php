@@ -40,7 +40,7 @@
             <div class="divImgProd">
                 <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
                 @if($i->producto()->oferta())
-                    <span class="bandaOfertas">{{ Str::upper(Lang::get('html.oferta')) }}: ${{$i->producto()->precio(1)}} <span>({{ Str::lower(Lang::get('html.oferta_antes')) }}: ${{$i->producto()->precio(2)}})</span></span>
+                    <span class="bandaOfertas">{{ Str::upper(Lang::get('html.oferta')) }}: ${{$i->producto()->precio(2)}} <span>({{ Str::lower(Lang::get('html.oferta_antes')) }}: ${{$i->producto()->precio(1)}})</span></span>
                 @elseif($i->producto()->nuevo())
                     <span class="bandaNuevos">{{ Str::upper(Lang::get('html.nuevo')) }}</span>
                 @endif
