@@ -58,7 +58,7 @@ h1, h2, h3 {font-weight: 300}
 
 .open {background: #E6E6DA}
 
-.thumbnail {padding: 0; border: none; border-radius: 0;}
+.thumbnail {padding: 0; border: none; border-radius: 0; position: relative;}
 
 .modal-header, .modal-footer {border: 0}
 

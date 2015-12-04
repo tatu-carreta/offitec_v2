@@ -92,7 +92,7 @@
             <div class="row">
                 <div class="col-md-6 divDatos">
                     <h3>Cuerpo</h3>
-                    <div class="divEditorTxt marginBottom2">
+                    <div class="divEditorTxt fondoDestacado marginBottom2">
                         <textarea id="texto" contenteditable="true" name="cuerpo">{{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}</textarea>
                     </div>
                     <!-- Videos -->

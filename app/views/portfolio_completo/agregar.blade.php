@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-6 divDatos">
                     <!-- Texto Descriptivo del Producto u obra -->
-                    <div class="divCargaTxtDesc">
+                    <div class="fondoDestacado divCargaTxtDesc">
                         <h3>Texto descriptivo del proyecto</h3>
                         <div class="divEditorTxt fondoDestacado">
                             <textarea id="texto" contenteditable="true" name="cuerpo"></textarea>

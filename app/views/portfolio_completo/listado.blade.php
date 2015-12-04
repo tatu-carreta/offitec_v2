@@ -30,14 +30,12 @@
             @endif
 
             @if(!Auth::check())
-                <a href="{{URL::to('portfolio_completo/'.$i->lang()->url)}}">
+                <a class="conEfectoHover" href="{{URL::to('portfolio_completo/'.$i->lang()->url)}}">
             @endif
-                <div class="conEfectoHover">
-                    <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
-                    <div class="efectoHover">
-                        <p class="pull-left">{{ $i->lang()->titulo }}</p>
-                    </div>
+                <div class="efectoHover">
+                    <p>{{ $i->lang()->titulo }}</p>
                 </div>
+                <img class="lazy" data-original="@if(!is_null($i->imagen_destacada())){{ URL::to($i->imagen_destacada()->carpeta.$i->imagen_destacada()->nombre) }}@else{{URL::to('images/sinImg.gif')}}@endif" alt="{{$i->lang()->titulo}}">
             @if(!Auth::check())
                 </a>
             @endif
