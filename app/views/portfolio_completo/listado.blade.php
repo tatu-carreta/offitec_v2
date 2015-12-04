@@ -32,7 +32,7 @@
             @if(!Auth::check())
                 <a class="conEfectoHover" href="{{URL::to('portfolio_completo/'.$i->lang()->url)}}">
             @else
-                <div class="conEfectoHover">
+                <a href="#" class="conEfectoHover">
             @endif
                 <div class="efectoHover">
                     <p>{{ $i->lang()->titulo }}</p>
@@ -41,7 +41,7 @@
             @if(!Auth::check())
                 </a>
             @else
-                </div>
+                </a>
             @endif
 
             @if(Auth::check())

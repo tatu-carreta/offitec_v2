@@ -71,7 +71,7 @@ header {background:#F4F4EF;} /*gris oscuro: #1c1c1c gris clarito #868585*/
 .producto {background: #666; width: 100%; height: 250px;}
 
 /* SECTION */
-section {padding-top: 4em}
+section {padding-top: 4em; min-height: 350px;}
 section  * > * > *{margin-top: 0 !important}
 
 /* FOOTER */

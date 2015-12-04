@@ -80,12 +80,12 @@
                             </div>
                             <div class="divPrecio">
                                 <label for="" >
-                                    <span>Precio después $ </span><input id="" class="form-control inputWidth60 precioAble1 precio-number" type="text" name="precio_antes" value="{{$item->producto()->precio(1)}}">
+                                    <span>Precio antes $ </span><input id="" class="form-control inputWidth60 precioAble1 precio-number" type="text" name="precio_antes" value="{{$item->producto()->precio(1)}}">
                                 </label>
                             </div>
                             <div class="divPrecio">
                                 <label for="" >
-                                    <span>Precio antes $ </span><input id="" class="form-control inputWidth60 precioAble1 precio-number" type="text" name="precio_actual" value="{{$item->producto()->precio(2)}}">
+                                    <span>Precio oferta $ </span><input id="" class="form-control inputWidth60 precioAble1 precio-number" type="text" name="precio_actual" value="{{$item->producto()->precio(2)}}">
                                 </label>
                             </div>   
                             <div class="clearfix"></div>
