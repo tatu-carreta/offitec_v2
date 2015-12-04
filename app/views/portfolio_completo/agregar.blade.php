@@ -62,24 +62,28 @@
             
             <div class="row">
                 <div class="col-md-6 divDatos">
-                    <!-- Texto Descriptivo del Producto u obra -->
-                    <div class="fondoDestacado divCargaTxtDesc">
-                        <h3>Texto descriptivo del proyecto</h3>
-                        <div class="divEditorTxt fondoDestacado">
-                            <textarea id="texto" contenteditable="true" name="cuerpo"></textarea>
-                        </div>
-                    </div>
 
-                    <!-- Videos -->
-                    <div class="divCargaVideos">
-                        <h3>Videos</h3>
-                        <div class="fondoDestacado">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="video[]" placeholder="URL de video">
+                        <!-- Texto Descriptivo del Producto u obra -->
+                        <div class="divCargaTxtDesc">
+                            <h3>Texto descriptivo del proyecto</h3>
+                            <div class="fondoDestacado">
+                                <div class="divEditorTxt">
+                                    <textarea id="texto" contenteditable="true" name="cuerpo"></textarea>
+                                </div>
                             </div>
-                            <p class="infoTxt"><i class="fa fa-info-circle"></i>Copie la URL del video de Youtube o Vimeo.</p>
-                        </div>   
-                    </div>
+                        </div>
+
+                        <!-- Videos -->
+                        <div class="divCargaVideos">
+                            <h3>Video</h3>
+                            <div class="fondoDestacado">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="video[]" placeholder="URL de video">
+                                </div>
+                                <p class="infoTxt"><i class="fa fa-info-circle"></i>Copie la URL del video de Youtube o Vimeo.</p>
+                            </div>   
+                        </div>
+
                 </div>
 
 

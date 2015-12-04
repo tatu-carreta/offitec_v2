@@ -33,9 +33,9 @@
             <div class="row">
                 <!-- Imágenes -->
                 <div class="col-md-12 divDatos">
-                    <h3>Recorte de imágenes</h3>
+                    <h3>Imágenes del proyecto</h3>
                         <div class="fondoDestacado">
-                            <h4>Nueva imagen</h4>
+                            <h4>Recorte de imágenes</h4>
                             <p class="infoTxt"><i class="fa fa-info-circle"></i>La imagen original no debe exceder los 500kb de peso.</p>
 
                             <input type="hidden" ng-model="url_public" ng-init="url_public = '{{URL::to('/')}}'">
@@ -91,13 +91,13 @@
 
             <div class="row">
                 <div class="col-md-6 divDatos">
-                    <h3>Cuerpo</h3>
+                    <h3>Texto descriptivo del proyecto</h3>
                     <div class="divEditorTxt fondoDestacado marginBottom2">
                         <textarea id="texto" contenteditable="true" name="cuerpo">{{ $item->portfolio()->portfolio_completo()->lang()->cuerpo }}</textarea>
                     </div>
                     <!-- Videos -->
                     <div class="divCargaVideos">
-                        <h3>Videos</h3>
+                        <h3>Video</h3>
                         <div class="fondoDestacado">
                             @include('video.modulo-video-editar')
                         </div>   
