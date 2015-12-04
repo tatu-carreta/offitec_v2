@@ -19,9 +19,9 @@
 
         {{ Form::open(array('url' => $prefijo.'/admin/html/editar')) }}
 
-            <input class="block anchoTotal marginBottom" type="text" name="titulo" placeholder="Título" value="{{$item->titulo}}">
+            <input class="block anchoTotal marginBottom" type="text" name="titulo" placeholder="Título" value="{{$item->lang()->titulo}}">
             <div class="divEditorTxt">
-                <textarea id="cuerpo" contenteditable="true" class="" name="cuerpo">{{ $html->cuerpo }}</textarea>
+                <textarea id="cuerpo" contenteditable="true" class="" name="cuerpo">{{ $html->lang()->cuerpo }}</textarea>
             </div>
             <div class="floatRight">
                 <a onclick="cancelarPopup('agregar-seccion');" class="btnGris marginRight5">Cancelar</a>
