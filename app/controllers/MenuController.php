@@ -86,10 +86,12 @@ class MenuController extends BaseController {
                 }
                 $textoAgregar = Lang::get('controllers.menu.mostrar_info.' . $menu_basic->modulo()->nombre . '.texto_agregar');
                 $texto_modulo = Lang::get('controllers.menu.mostrar_info.' . $menu_basic->modulo()->nombre . '.texto_modulo');
+                $texto_no_items = Lang::get('controllers.menu.mostrar_info.' . $menu_basic->modulo()->nombre . '.texto_no_items');
 
                 $this->array_view['html'] = $menu_basic->modulo()->nombre . ".listado";
                 $this->array_view['texto_agregar'] = $textoAgregar;
                 $this->array_view['texto_modulo'] = $texto_modulo;
+                $this->array_view['texto_no_items'] = $texto_no_items;
 
                 $this->array_view['hay_datos'] = $hay_datos;
 

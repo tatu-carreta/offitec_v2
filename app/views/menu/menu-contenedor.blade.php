@@ -62,7 +62,7 @@
             @if((!$hay_datos) && (!Auth::check()))
                 <div class="row">
                     <div class="col-md-12">
-                        {{ Lang::get('html.contenedor.no_items', ['texto_modulo' => $texto_modulo]) }}
+                        {{ Lang::get('html.contenedor.no_items', ['texto_no_items' => $texto_no_items]) }}
                     </div>
                 </div>
             @else

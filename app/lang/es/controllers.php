@@ -27,31 +27,38 @@ return array(
         'mostrar_info' => array(
             'producto' => array(
                 'texto_agregar' => 'Nuevo Producto',
-                'texto_modulo' => 'productos'
+                'texto_modulo' => 'productos',
+                'texto_no_items' => 'No hay productos aún.',
             ),
             'noticia' => array(
                 'texto_agregar' => 'Nueva Noticia',
-                'texto_modulo' => 'noticias'
+                'texto_modulo' => 'noticias',
+                'texto_no_items' => '',
             ),
             'evento' => array(
                 'texto_agregar' => 'Nuevo Evento',
-                'texto_modulo' => 'eventos'
+                'texto_modulo' => 'eventos',
+                'texto_no_items' => '',
             ),
             'portfolio_simple' => array(
                 'texto_agregar' => 'Nuevo Portfolio Simple',
-                'texto_modulo' => 'obras'
+                'texto_modulo' => 'obras',
+                'texto_no_items' => '',
             ),
             'portfolio_completo' => array(
                 'texto_agregar' => 'Nuevo Proyecto',
-                'texto_modulo' => 'proyectos'
+                'texto_modulo' => 'proyectos',
+                'texto_no_items' => 'Próximamente, en proceso.',
             ),
             'muestra' => array(
                 'texto_agregar' => 'Nueva Muestra',
-                'texto_modulo' => 'muestras'
+                'texto_modulo' => 'muestras',
+                'texto_no_items' => '',
             ),
             'default' => array(
                 'texto_agregar' => 'Nuevo Item',
-                'texto_modulo' => 'items'
+                'texto_modulo' => 'items',
+                'texto_no_items' => '',
             ),
         ),
     ),

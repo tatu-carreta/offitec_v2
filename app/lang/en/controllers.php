@@ -27,31 +27,38 @@ return array(
         'mostrar_info' => array(
             'producto' => array(
                 'texto_agregar' => 'Nuevo Producto',
-                'texto_modulo' => 'products'
+                'texto_modulo' => 'products',
+                'texto_no_items' => 'No products.',
             ),
             'noticia' => array(
                 'texto_agregar' => 'Nueva Noticia',
-                'texto_modulo' => 'news'
+                'texto_modulo' => 'news',
+                'texto_no_items' => '',
             ),
             'evento' => array(
                 'texto_agregar' => 'Nuevo Evento',
-                'texto_modulo' => 'events'
+                'texto_modulo' => 'events',
+                'texto_no_items' => '',
             ),
             'portfolio_simple' => array(
                 'texto_agregar' => 'Nuevo Portfolio Simple',
-                'texto_modulo' => 'works'
+                'texto_modulo' => 'works',
+                'texto_no_items' => '',
             ),
             'portfolio_completo' => array(
                 'texto_agregar' => 'Nuevo Proyecto',
-                'texto_modulo' => 'projects'
+                'texto_modulo' => 'projects',
+                'texto_no_items' => 'Coming soon.',
             ),
             'muestra' => array(
                 'texto_agregar' => 'Nueva Muestra',
-                'texto_modulo' => 'exhibitions'
+                'texto_modulo' => 'exhibitions',
+                'texto_no_items' => '',
             ),
             'default' => array(
                 'texto_agregar' => 'Nuevo Item',
-                'texto_modulo' => 'items'
+                'texto_modulo' => 'items',
+                'texto_no_items' => '',
             ),
         ),
     ),

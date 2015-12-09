@@ -51,7 +51,7 @@ return array(
         'texto_carrito' => '<strong> Request estimate: </strong> 1) select up to 6 products from the catalog and add quantity 2) complete your personal data, state your questions and press send 3) we will send you a complete estimate by email',
     ),
     'contenedor' => array(
-        'no_items' => 'No :texto_modulo.',
+        'no_items' => ':texto_no_items',
         'convertir_a_categoria' => 'Convert to subcategories',
         'ordenar_seccion' => 'Sections sort',
         'nueva_seccion' => 'New section',
