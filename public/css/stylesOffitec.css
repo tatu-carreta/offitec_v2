@@ -236,5 +236,11 @@ h4{margin-bottom: 20px;font-size: 20px;}
     .col-xs-6 {width: 100%;}
 }
 @media screen and (max-width: 400px){
-    .idiomas {display: none;}
+    .idiomas {padding: 12px 15px;}
+    .btnCarrito { padding: 0 0.5em !important;} 
+    .idiomas, .btnCarrito {height: 80px}
+    .logo {width: 36%; left: 12px; margin-top: 15px;}
+    .logo img {width: 100%;}
+    .navbar-toggle .icon-bar {width: 18px}
+    .navbar-toggle { margin-top: 1.5em;}
 }

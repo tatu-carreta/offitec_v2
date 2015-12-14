@@ -73,6 +73,7 @@ header {background:#F4F4EF;} /*gris oscuro: #1c1c1c gris clarito #868585*/
 /* SECTION */
 section {padding-top: 4em; min-height: 350px;}
 section  * > * > *{margin-top: 0 !important}
+section .titulosPag {color:#FF9C00; font-weight: 500}
 
 /* FOOTER */
 footer {margin-top: 1em; padding: 4em 0}

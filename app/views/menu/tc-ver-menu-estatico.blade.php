@@ -7,7 +7,7 @@
     <section class="container">
         <div class="row">
             <div class="col-md-12 marginBottom2">
-                <h2>{{ $menu_basic->lang()->nombre }}</h2>
+                <h2 class="titulosPag">{{ $menu_basic->lang()->nombre }}</h2>
             </div>
         </div>
         

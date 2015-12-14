@@ -4,7 +4,7 @@
 <section class="container">
     <div class="row">
         <div class="col-md-12 marginBottom2">
-            <h2>{{ Lang::get('html.contacto.titulo_contacto') }}</h2>
+            <h2 class="titulosPag">{{ Lang::get('html.contacto.titulo_contacto') }}</h2>
         </div>
     </div>
     <div class="clearfix"></div>
