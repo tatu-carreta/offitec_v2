@@ -41,8 +41,8 @@ return array(
         'telefono' => 'Teléfono',
         'comentarios' => 'Comentarios',
         'empresa' => 'Empresa',
-        'offitec_en_laplata' => '<h3>La Plata</h3><p>Calle 39 N° 833 e/ 11 y 12 </br>Teléfono: (0221) 4221273 / Fax: (0221) 4273777 </br>Email: ventas@offitec.com</p>',
-        'offitec_en_lomas' => '<h3>Lomas de Zamora</h3><p>Av. Hipólito Yrigoyen 9275 (ex Av. Pavón) </br>Teléfono: (011) 42444099 </br>Email: lomas@offitec.com</p>',
+        'offitec_en_laplata' => '<h3>La Plata</h3><p>Calle 39 N° 833 e/ 11 y 12 </br>Teléfono: (0221) 4221273 / Fax: (0221) 4273777 </br>Email: <strong>ventas@offitec.com</strong></p>',
+        'offitec_en_lomas' => '<h3>Lomas de Zamora</h3><p>Av. Hipólito Yrigoyen 9275 (ex Av. Pavón) </br>Teléfono: (011) 42444099 </br>Email: <strong>lomas@offitec.com</strong></p>',
     ),
     'carrito' => array(
         'productos_seleccionados' => 'Productos seleccionados',
