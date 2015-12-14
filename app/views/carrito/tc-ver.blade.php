@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 marginBottom2">
-                    <h2 class="pull-left">{{ Lang::get('html.presupuesto') }}</h2>
+                    <h2 class="pull-left titulosPag">{{ Lang::get('html.presupuesto') }}</h2>
                     <div class="clearfix"></div>
                 </div>
             </div>
