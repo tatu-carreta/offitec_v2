@@ -154,7 +154,7 @@ label.btn + input.form-control {display: table-cell;vertical-align: middle; marg
 .divInputFile input.form-control { width: calc(100% - 1em);}
 .divDatos .thumbnail {background: transparent;}
 .thumbnail .fa-times-circle { position: absolute; top: 0.6em; right: 0.4em; font-size: 1.4em !important;color: #286090; cursor: pointer;}
-.divCuerpoTxt .fondoDestacado{min-height: 314px; margin-bottom: 0 !important}
+.divCuerpoTxt .fondoDestacado{min-height: 80px; margin-bottom: 0 !important}
 
 .form-group span {display: inline-block; margin:0 0.3em; font-size: 2em;}
 
