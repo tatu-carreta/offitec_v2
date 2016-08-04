@@ -11405,3 +11405,19 @@ Stack trace:
 #16 C:\xampp\htdocs\offitec_v2\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #17 C:\xampp\htdocs\offitec_v2\public\index.php(54): Illuminate\Foundation\Application->run()
 #18 {main} [] []
+[2015-12-09 19:25:19] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\controllers\ProductoController.php:50
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-03-02 18:12:46] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\storage\views\7469551bf908960b794dfc2173bdb8bc:31
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-03-02 18:13:25] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\controllers\ProductoController.php:50
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-03-02 18:24:26] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function menuSeccion() on a non-object' in C:\xampp\htdocs\offitec_v2\app\controllers\ProductoController.php:50
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

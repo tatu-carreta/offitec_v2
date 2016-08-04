@@ -49,7 +49,7 @@ return array(
             'driver' => 'mysql',
             'host' => 'localhost',
             //'database'  => 'offitecc_tc',
-            'database' => 'offitec_tc_2',
+            'database' => 'offitecc_tc_3',
             'username'  => 'root',
             //'username' => 'offitecc_tc_user',
             'password'  => '',
